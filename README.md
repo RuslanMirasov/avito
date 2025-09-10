@@ -1,3 +1,3 @@
-# Sportloto promo page
+# Avito main page
 
 ![Project Preview](./public/poster.webp)
