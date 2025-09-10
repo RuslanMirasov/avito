@@ -361,21 +361,19 @@ a {
   background: url("../img/svg/arrow-next.svg") no-repeat center center;
   left: 100%;
 }
-.swiper-arrow.swiper-button-disabled {
-  opacity: 0.3;
-  pointer-events: none;
-}
 
 .swiper-pagination {
   display: flex;
   position: relative;
   width: 100% !important;
-  height: 20px;
+  height: auto;
+  padding-bottom: 4px;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   align-content: center;
   bottom: 0px !important;
+  margin-top: 30px;
   gap: 20px;
 }
 .swiper-pagination .swiper-pagination-bullet {
@@ -383,67 +381,31 @@ a {
   justify-content: center;
   align-items: center;
   align-content: center;
-  position: absolute;
-  left: 50% !important;
-  transform: scale(1) translate(-50%, 0%);
-  margin: 0 !important;
-  opacity: 0;
-  width: 40px;
-  height: 20px;
-  border-radius: 0px;
-  background: none;
-  transition: 0.6s !important;
-  pointer-events: none;
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active-next-next {
-  position: absolute;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 20px;
+  background-color: var(--white) !important;
   transform: scale(1);
-  left: 50% !important;
-  opacity: 0;
-  transform: translate(calc(200% + 20px), 0%);
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active-prev-prev {
-  position: absolute;
-  transform: scale(1);
-  left: 50% !important;
-  opacity: 0;
-  transform: translate(calc(-300% - 20px), 0%);
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active-main {
-  position: absolute;
-  transform: scale(1);
-  left: 50% !important;
   opacity: 1;
-  transform: translate(-50%, 0%);
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active-next {
-  position: absolute;
-  transform: scale(1);
-  left: 50% !important;
-  opacity: 0.3;
-  transform: translate(100%, 0%);
-  pointer-events: all;
-}
-.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active-prev {
-  position: absolute;
-  transform: scale(1);
-  left: 50% !important;
-  opacity: 0.3;
-  transform: translate(-200%, 0%);
-  pointer-events: all;
+  margin: 0 !important;
+  transition: 0.6s !important;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 .swiper-pagination .swiper-pagination-bullet:before {
   content: "";
   position: absolute;
   width: 100%;
-  height: 4px;
-  border-radius: 2px;
-  background-color: var(--color);
-  opacity: 1;
+  height: 100%;
+  border-radius: 50px;
+  background: var(--gradient);
+  opacity: 0;
   transition: background-color 0.3s, opacity 0.3s;
 }
+.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: red;
+}
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active:before {
-  background-color: var(--brown);
+  opacity: 1;
 }
 
 .burger {
@@ -820,6 +782,9 @@ a {
   width: 100%;
   font-size: 34px;
   text-align: center;
+}
+.title.title--h2 {
+  font-size: 48px;
 }
 .title.ta--l {
   text-align: left;
@@ -1380,7 +1345,7 @@ body.locked {
           user-select: none;
   background: var(--white);
   padding: 40px;
-  border-radius: 30px;
+  border-radius: 20px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
 }
 .popup-content .button {
@@ -1389,6 +1354,10 @@ body.locked {
 }
 .popup-content .form {
   max-width: 630px;
+}
+.popup-content .form .popup-subtitle {
+  width: 100%;
+  margin-top: 20px;
 }
 
 .popup-image {
@@ -1661,7 +1630,7 @@ body.locked {
   padding: 60px 0px;
 }
 .section--speakers .swiper-arrow {
-  top: 120px;
+  top: 110px;
   margin-top: 0px;
 }
 
@@ -1792,6 +1761,43 @@ body.locked {
 
 .qr-code {
   width: 300px;
+}
+
+.section--maps {
+  padding: 60px 0px;
+}
+
+.swiper--maps {
+  margin-top: 40px;
+  overflow: visible;
+}
+.swiper--maps .swiper-slide {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 40px;
+  background: var(--white);
+  padding: 40px;
+  border-radius: 20px;
+  transition: 0.6s;
+  opacity: 0;
+}
+.swiper--maps .swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
+
+.map {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 646px;
+  height: 530px;
+  border-radius: 20px;
+  background: var(--bg);
 }
 
 .countdown {

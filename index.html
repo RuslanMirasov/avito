@@ -31,10 +31,10 @@
           <ul class="menu">
             <li><a href="#about" class="menu__link" data-scrollto>О конференции</a></li>
             <li><a href="#speakers" class="menu__link" data-scrollto>Спикеры</a></li>
-            <li><a href="./" class="menu__link" data-scrollto>Расписание</a></li>
-            <li><a href="./" class="menu__link" data-scrollto>Трансляция</a></li>
-            <li><a href="./" class="menu__link" data-scrollto>Местоположение</a></li>
-            <li><a href="./" class="menu__link" data-scrollto>FAQ</a></li>
+            <li><a href="#timetable" class="menu__link" data-scrollto>Расписание</a></li>
+            <li><a href="#broadcast" class="menu__link" data-scrollto>Трансляция</a></li>
+            <li><a href="#maps" class="menu__link" data-scrollto>Местоположение</a></li>
+            <li><a href="#faq" class="menu__link" data-scrollto>FAQ</a></li>
           </ul>
         </nav>
 
@@ -62,13 +62,13 @@
     <!--FIXED SECTIONS PAGINATION-->
     <ul class="fixed-pagination">
       <li>
-        <a href="#some-section" data-scrollto data-section-pagination></a>
+        <a href="#maps" data-scrollto data-section-pagination></a>
       </li>
       <li>
-        <a href="#some-section" data-scrollto data-section-pagination></a>
+        <a href="#broadcast" data-scrollto data-section-pagination></a>
       </li>
       <li>
-        <a href="#some-section" data-scrollto data-section-pagination></a>
+        <a href="#timetable" data-scrollto data-section-pagination></a>
       </li>
       <li>
         <button type="button" class="button button--medium" data-popup-open="register"><span>Я в деле</span></button>
@@ -210,7 +210,7 @@
       <section class="section section--speakers" data-slider data-slides-per-view="4,3,1" id="speakers">
         <div class="container">
           <div class="title-box">
-            <h2 class="title">Спикеры</h2>
+            <h2 class="title title--h2">Спикеры</h2>
             <p class="subtitle">Расскажут объективно о бизнесе</p>
           </div>
 
@@ -336,11 +336,32 @@
         </div>
       </section>
 
+      <!--SECTION MAPS-->
+      <section class="section section--maps" data-slider data-space-between="20,20,10" id="maps">
+        <div class="container">
+          <h2 class="title title--h2">Как нас найти</h2>
+
+          <div class="swiper swiper--maps">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="map" id="map"></div>
+                <div class="map-description">
+                  <h3 class="title">Как нас найти</h3>
+                </div>
+              </div>
+              <div class="swiper-slide">2</div>
+            </div>
+
+            <div class="swiper-pagination" data-pagination></div>
+          </div>
+        </div>
+      </section>
+
       <!--SECTION CHATBOT-->
       <section class="section section--chatbot">
         <div class="container">
           <div class="title-box">
-            <h2 class="title">Чат-бот</h2>
+            <h2 class="title title--h2">Чат-бот</h2>
             <p class="subtitle">Сканируйте QR-код, чтобы не пропустить важное! <br />Пишем только по делу.</p>
           </div>
 
@@ -398,8 +419,7 @@
           <button class="popup-close" data-popup-close></button>
 
           <h2 class="popup-title">Регистрация</h2>
-          <p class="popup-subtitle">Зарегистрируйтесь на бизнес-конференцию <br />прямо сейчас!</p>
-          <p class="popup-subtitle">Заполняйте все поля регистрации и получайте фирменный стикер-пак</p>
+          <p class="popup-subtitle">Заполните все поля и&nbsp;получите фирменный e-com стикерпак, это не&nbsp;займет много времени.</p>
 
           <!--Login form-->
           <script>
@@ -424,6 +444,9 @@
             <label class="label">
               <input type="tel" name="phone" class="input" placeholder="Ваш телефон +7 (..." required />
             </label>
+
+            <p class="popup-subtitle">Выберете подходящий формат участия в Бизнес конференции Авито для продавцов "По делу"</p>
+            <p class="popup-subtitle">В мире продаж вы:</p>
 
             <button type="submit" class="button"><span>Я в деле</span></button>
           </form>

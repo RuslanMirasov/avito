@@ -64,7 +64,7 @@ export const initSliders = () => {
         options.pagination = {
           el: pagination,
           clickable: true,
-          dynamicBullets: true,
+          dynamicBullets: false,
         };
       }
 
