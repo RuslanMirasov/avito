@@ -59,23 +59,3 @@ export const initNavigationMenu = () => {
   if (burger) burger.addEventListener('click', toggleMenu);
   menuLinks.forEach(link => link.addEventListener('click', toggleMenu));
 };
-
-export const checkFixedBg = () => {
-  const elements = document.querySelectorAll('[data-fixed-bg]');
-
-  if (elements.length == 0) return;
-
-  const top = window.scrollY;
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    const absTop = rect.top + window.scrollY;
-    if (absTop <= top) {
-      el.classList.add('fix');
-    } else {
-      el.classList.remove('fix');
-    }
-  });
-
-  window.addEventListener('scroll', checkFixedBg);
-  window.addEventListener('resize', checkFixedBg);
-};

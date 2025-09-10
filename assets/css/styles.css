@@ -170,12 +170,9 @@
   pointer-events: none;
   opacity: 0;
 }
-.preloader.hidden span {
-  transform: scale(0);
-}
 .preloader span {
-  width: 30%;
-  height: 170px;
+  width: 40px;
+  height: 40px;
   display: inline-flex;
   position: relative;
   justify-content: center;
@@ -193,8 +190,19 @@
 .preloader span img {
   position: absolute;
   width: 100%;
-  -webkit-animation: bounce 3s ease-out infinite;
-          animation: bounce 3s ease-out infinite;
+}
+.preloader span:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  border-radius: 100px;
+  border-top: 2px solid var(--blue);
+  border-right: 2px solid var(--blue);
+  border-left: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  -webkit-animation: rotate 0.4s linear infinite;
+          animation: rotate 0.4s linear infinite;
 }
 
 :root {
