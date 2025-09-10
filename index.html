@@ -344,12 +344,18 @@
           <div class="swiper swiper--maps">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <div class="map" id="map"></div>
+                <div class="map swiper-no-swiping" id="map" data-adress data-lat="56.766336" data-lng="60.758219"></div>
                 <div class="map-description">
-                  <h3 class="title">Как нас найти</h3>
+                  <h3 class="title ta--l">Как нас найти</h3>
+                  <p>Площадка МТС Live Hall находится по&nbsp;адресу Бульвар Экспо, 2А.</p>
+                  <p>
+                    Доехать можно на&nbsp;такси или&nbsp;своим ходом. Заезжайте с&nbsp;Кольцовского тракта, там для вас будет работать бесплатная
+                    парковка на&nbsp;6&nbsp;000&nbsp;мест.
+                  </p>
+                  <p>Также до&nbsp;концертного зала ходит общественный транспорт, вам подойдут автобусы: №&nbsp;44, 56, 65, 66.</p>
                 </div>
               </div>
-              <div class="swiper-slide">2</div>
+              <!-- <div class="swiper-slide">2</div> -->
             </div>
 
             <div class="swiper-pagination" data-pagination></div>
@@ -514,6 +520,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=54a78c1e-ad47-46be-99d8-9d26e3b87442&lang=ru_RU" type="text/javascript"></script>
+    <script src="./assets/js/map.js"></script>
     <script src="./assets/js/forms.js" type="module"></script>
     <script src="./assets/js/scripts.js" type="module"></script>
   </body>

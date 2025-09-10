@@ -31,6 +31,8 @@ export const initSliders = () => {
         centeredSlides: centered,
         centeredSlidesBounds: centered,
         direction,
+        noSwiping: true,
+        noSwipingClass: 'swiper-no-swiping',
         breakpoints: {
           0: {
             slidesPerView: Number(slidesPerView.split(',')[2]),

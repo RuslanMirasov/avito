@@ -1801,11 +1801,24 @@ body.locked {
 .map {
   display: block;
   position: relative;
-  overflow: hidden;
   width: 646px;
   height: 530px;
   border-radius: 20px;
   background: var(--bg);
+}
+
+.map-description {
+  display: flex;
+  width: 100%;
+  flex: 1;
+  position: relative;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+.map-description p {
+  font-size: 20px;
+  line-height: 1.2;
 }
 
 .countdown {
