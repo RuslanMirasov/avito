@@ -25,7 +25,7 @@ function init() {
         },
         {
           iconLayout: 'default#image',
-          iconImageHref: '../assets/img/svg/pin.svg',
+          iconImageHref: './assets/img/svg/pin.svg',
           iconImageSize: [54, 70],
           iconImageOffset: [-27, -70],
         }
