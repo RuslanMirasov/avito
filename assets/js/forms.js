@@ -44,8 +44,30 @@ const validationRegEx = [
   },
 ];
 
+const validateRadioGroup = input => {
+  const form = input.form || document;
+  const name = input.name;
+  const type = input.type;
+
+  const group = [...form.querySelectorAll(`input[type="${type}"][name="${CSS.escape(name)}"]`)];
+  if (group.length === 0) return true;
+
+  const isChecked = group.some(el => el.checked);
+
+  group.forEach(el => {
+    if (isChecked) {
+      el.classList.remove('invalid');
+    } else {
+      el.classList.add('invalid');
+    }
+  });
+
+  return isChecked;
+};
+
 const validateInput = input => {
   if (!input.required) return;
+  if (input.matches(':disabled') || input.closest('fieldset[disabled]')) return true;
 
   const validationError = error => {
     addErrorHTML(error, input);
@@ -53,6 +75,10 @@ const validateInput = input => {
   };
 
   const { name, value, checked, type, files } = input;
+
+  if (type === 'radio' || type === 'checkbox') {
+    return validateRadioGroup(input);
+  }
 
   if (type === 'file') {
     const errorEl = input.closest('.label-for-file').querySelector('.label__text');
@@ -72,10 +98,6 @@ const validateInput = input => {
       errorEl.innerHTML = `<span class="error">Файл больше 3MB!</span>`;
       return false;
     }
-  }
-
-  if ((type === 'checkbox' || type === 'radio') && !checked) {
-    return validationError(validationRegEx.find(rule => rule.type === type).error);
   }
 
   if (!value || value === '') {
@@ -204,8 +226,25 @@ document.addEventListener('change', e => {
     }, 0);
   }
 
+  if (e.target.type === 'radio') {
+    validateRadioGroup(e.target);
+  }
+
   if (e.target.type === 'checkbox') {
-    validateInput(e.target);
+    if (e.target.name === 'skip_question') {
+      const isChecked = e.target.checked;
+      const avitoId = document.querySelector('.avitoId');
+      if (isChecked && avitoId) {
+        avitoId.removeAttribute('required');
+        avitoId.classList.remove('invalid');
+        avitoId.disabled = true;
+      } else {
+        avitoId.disabled = false;
+        avitoId.setAttribute('required', '');
+      }
+    }
+
+    validateRadioGroup(e.target);
   }
 });
 

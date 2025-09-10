@@ -420,18 +420,36 @@
     <!--POPUPS-->
     <div class="backdrop" data-backdrop>
       <div class="popup" data-popup>
-        <!--REGISTRATION POPUP-->
+        <!--REGISTRATION POPUPS-->
         <div class="popup-content" id="register">
           <button class="popup-close" data-popup-close></button>
 
           <h2 class="popup-title">Регистрация</h2>
           <p class="popup-subtitle">Заполните все поля и&nbsp;получите фирменный e-com стикерпак, это не&nbsp;займет много времени.</p>
 
-          <!--Login form-->
+          <!--Step 1 submit function-->
           <script>
             function onRegisterFormSubmit(e) {
               e.preventDefault();
-              window.popup.open('register-success');
+              const form = e.target;
+              const isProfi = form.elements['sales_role'].value === 'Профессиональный продавец';
+
+              const profiInputs = document.querySelectorAll('fieldset.profi');
+              const singleInputs = document.querySelectorAll('fieldset.single');
+
+              profiInputs.forEach(fs => {
+                const show = isProfi;
+                fs.style.display = show ? 'flex' : 'none';
+                fs.disabled = !show;
+              });
+
+              singleInputs.forEach(fs => {
+                const show = !isProfi;
+                fs.style.display = show ? 'flex' : 'none';
+                fs.disabled = !show;
+              });
+
+              window.popup.open('register2');
             }
           </script>
           <form action="#" class="form" novalidate onsubmit="onRegisterFormSubmit(event)">
@@ -452,7 +470,444 @@
             </label>
 
             <p class="popup-subtitle">Выберете подходящий формат участия в Бизнес конференции Авито для продавцов "По делу"</p>
+
+            <fieldset>
+              <label class="label">
+                <input type="radio" name="participation_format" class="radio" required value="Очно (Екатеринбург, МТС Live Hall)" />
+                <p class="label__text">Очно (Екатеринбург, МТС Live Hall)</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="participation_format" class="radio" required value="Онлайн" />
+                <p class="label__text">Онлайн</p>
+              </label>
+            </fieldset>
+
             <p class="popup-subtitle">В мире продаж вы:</p>
+
+            <fieldset>
+              <label class="label">
+                <input type="radio" name="sales_role" class="radio" required value="Профессиональный продавец" />
+                <p class="label__text">Профессиональный продавец</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="sales_role" class="radio" required value="Частный продавец" />
+                <p class="label__text">Частный продавец</p>
+              </label>
+            </fieldset>
+
+            <button type="submit" class="button"><span>Далее</span></button>
+          </form>
+
+          <p class="popup-text">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфидициальности</a></p>
+        </div>
+
+        <div class="popup-content" id="register2">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Регистрация</h2>
+
+          <!--Step 1 submit function-->
+          <script>
+            function onRegisterNextSubmit(e) {
+              e.preventDefault();
+              const form = e.target;
+              console.log(form);
+              const selected = form.querySelector('input[name="sell_on_avito"]:checked');
+              const isOnAvito = selected && selected.value === 'Да';
+              console.log(isOnAvito);
+              if (isOnAvito) {
+                window.popup.open('register3');
+              } else {
+                window.popup.open('register4');
+              }
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onRegisterNextSubmit(event)">
+            <fieldset class="profi">
+              <p class="popup-subtitle">Наименование вашей компании</p>
+
+              <label class="label">
+                <input type="text" name="company_name" class="input" required />
+              </label>
+
+              <p class="popup-subtitle">ИНН вашей компании</p>
+
+              <label class="label">
+                <input type="text" name="company_inn" class="input" required />
+              </label>
+
+              <p class="popup-subtitle">Какую роль или должность в компании вы&nbsp;занимаете?</p>
+
+              <label class="label">
+                <input type="radio" name="company_role" class="radio" required value="Владелец бизнеса" />
+                <p class="label__text">Владелец бизнеса</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" name="company_role" class="radio" required value="Маркетолог" />
+                <p class="label__text">Маркетолог</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" name="company_role" class="radio" required value="Сотрудник отдела продаж" />
+                <p class="label__text">Сотрудник отдела продаж</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" name="company_role" class="radio" required value="Другое (место для свободного ответа)" />
+                <p class="label__text">Другое (место для свободного ответа)</p>
+              </label>
+
+              <p class="popup-subtitle">Кому вы продаете товары?</p>
+
+              <label class="label">
+                <input type="radio" name="target_audience" class="radio" required value="Частным лицам" />
+                <p class="label__text">Частным лицам</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" name="target_audience" class="radio" required value="Бизнесу" />
+                <p class="label__text">Бизнесу</p>
+              </label>
+
+              <label class="label">
+                <input type="radio" name="target_audience" class="radio" required value="Частным лицам и бизнесу" />
+                <p class="label__text">Частным лицам и бизнесу</p>
+              </label>
+            </fieldset>
+
+            <fieldset class="single">
+              <p class="popup-subtitle">Товары какой категории вы продаете?</p>
+
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Одежда и аксессуары" />
+                <p class="label__text">Одежда и аксессуары</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Электроника" />
+                <p class="label__text">Электроника</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Запчасти и аксессуары" />
+                <p class="label__text">Запчасти и аксессуары</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Автосервисы" />
+                <p class="label__text">Автосервисы</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Мебель" />
+                <p class="label__text">Мебель</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Ремонт" />
+                <p class="label__text">Ремонт</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Строительство" />
+                <p class="label__text">Строительство</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Хобби (аксессуары и вещи ручной работы)" />
+                <p class="label__text">Хобби (аксессуары и вещи ручной работы)</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" required value="Другое (место для свободного ответа)" />
+                <p class="label__text">Другое (место для свободного ответа)</p>
+              </label>
+            </fieldset>
+
+            <p class="popup-subtitle">Продаёте ли вы на Авито?</p>
+
+            <label class="label">
+              <input type="radio" name="sell_on_avito" class="radio" required value="Да" />
+              <p class="label__text">Да</p>
+            </label>
+
+            <label class="label">
+              <input type="radio" name="sell_on_avito" class="radio" required value="Нет" />
+              <p class="label__text">Нет</p>
+            </label>
+
+            <button type="submit" class="button"><span>Далее</span></button>
+          </form>
+
+          <p class="popup-text">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфидициальности</a></p>
+        </div>
+
+        <div class="popup-content" id="register3">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Регистрация</h2>
+
+          <!--Final Step submit function-->
+          <script>
+            function onRegisterFinalSubmit(e) {
+              e.preventDefault();
+              window.popup.open('register-success');
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onRegisterFinalSubmit(event)">
+            <fieldset class="profi">
+              <p class="popup-subtitle">Укажите Авито ID <br /><a href="#" class="link">Где найти Авито ID?</a></p>
+
+              <label class="label">
+                <input type="text" name="avito_id" class="input avitoId" required placeholder="Ваш Авито ID" />
+              </label>
+
+              <label class="label">
+                <input type="checkbox" name="skip_question" class="checkbox" value="Пропустить вопрос" />
+                <p class="label__text">Пропустить вопрос</p>
+              </label>
+
+              <p class="popup-subtitle">Товары какой категории вы продаете?</p>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Одежда и аксессуары" required />
+                <p class="label__text">Одежда и аксессуары</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Электроника" required />
+                <p class="label__text">Электроника</p>
+              </label>
+
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Запчасти и аксессуары" required />
+                <p class="label__text">Запчасти и аксессуары</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Автосервисы" required />
+                <p class="label__text">Автосервисы</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Мебель" required />
+                <p class="label__text">Мебель</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Ремонт и стройка" required />
+                <p class="label__text">Ремонт и стройка</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Готовый бизнес" required />
+                <p class="label__text">Готовый бизнес</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Оборудование для бизнеса" required />
+                <p class="label__text">Оборудование для бизнеса</p>
+              </label>
+              <label class="label">
+                <input type="checkbox" name="product_category" class="checkbox" value="Другое (место для свободного ответа)" required />
+                <p class="label__text">Другое (место для свободного ответа)</p>
+              </label>
+
+              <p class="popup-subtitle">Укажите годовой оборот вашего бизнеса</p>
+
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="Менее 120 млн. рублей в год" required />
+                <p class="label__text">Менее 120 млн. рублей в год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="120-500 млн. рублей в год" required />
+                <p class="label__text">120-500 млн. рублей в год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="500-800 млн. рублей в год" required />
+                <p class="label__text">500-800 млн. рублей в год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="от 800 млн. до 2 млрд. рублей в год" required />
+                <p class="label__text">от 800 млн. до 2 млрд. рублей в год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="Более 2 млрд. рублей в год" required />
+                <p class="label__text">Более 2 млрд. рублей в год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="Пропустить вопрос" required />
+                <p class="label__text">Пропустить вопрос</p>
+              </label>
+            </fieldset>
+
+            <p class="popup-subtitle">Согласие на обработку Персональных данных</p>
+
+            <label class="label">
+              <input type="checkbox" name="privacy_policy" class="checkbox" value="Да" required />
+              <p class="label__text">Я соглашаюсь на&nbsp;обработку ПД в&nbsp;соответствии <br />с&nbsp;условиями политики конфиденциальности</p>
+            </label>
+
+            <p class="popup-subtitle">
+              Мы хотим делиться с вами инсайтами и интересными предложениями по электронной почте. Согласны присоединиться к рассылке? Обещаем писать
+              только по делу.
+            </p>
+
+            <p class="popup-subtitle">Согласие на рекламно-информационную рассылку</p>
+
+            <label class="label">
+              <input type="radio" name="marketing_subscription" class="radio" value="Согласен на рекламно-информационную рассылку" required />
+              <p class="label__text">Согласен на рекламно-информационную рассылку</p>
+            </label>
+
+            <label class="label">
+              <input type="radio" name="marketing_subscription" class="radio" value="Нет, мне это не интересно" required />
+              <p class="label__text">Нет, мне это не интересно</p>
+            </label>
+
+            <p class="popup-subtitle">Спасибо, что ответили на все вопросы!</p>
+
+            <button type="submit" class="button"><span>Я в деле</span></button>
+          </form>
+
+          <p class="popup-text">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфидициальности</a></p>
+        </div>
+
+        <div class="popup-content" id="register4">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Регистрация</h2>
+
+          <form action="#" class="form" novalidate onsubmit="onRegisterFinalSubmit(event)">
+            <fieldset class="profi">
+              <p class="popup-subtitle">Выберите причину, почему вы не выставляете товар на Авито?</p>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Высокие комиссии" required />
+                <p class="label__text">Высокие комиссии</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Недостаточно инструментов для продвижения" required />
+                <p class="label__text">Недостаточно инструментов для продвижения</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Слабый клиентский сервис" required />
+                <p class="label__text">Слабый клиентский сервис</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Некачественная клиентская поддержка" required />
+                <p class="label__text">Некачественная клиентская поддержка</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Наличие фрода" required />
+                <p class="label__text">Наличие фрода</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="В основном б/у товары" required />
+                <p class="label__text">В основном б/у товары</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Неудобно работать с доставкой" required />
+                <p class="label__text">Неудобно работать с доставкой</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Не хочу сам общаться с клиентами" required />
+                <p class="label__text">Не хочу сам общаться с клиентами</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Нет моей целевой аудитории" required />
+                <p class="label__text">Нет моей целевой аудитории</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Покупателям неудобно искать мой товар" required />
+                <p class="label__text">Покупателям неудобно искать мой товар</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Неудобная организация логистики" required />
+                <p class="label__text">Неудобная организация логистики</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Другое (место для свободного ответа)" required />
+                <p class="label__text">Другое (место для свободного ответа)</p>
+              </label>
+
+              <p class="popup-subtitle">Укажите годовой оборот вашего бизнеса</p>
+
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="Менее 120 млн. рублей в год" required />
+                <p class="label__text">Менее 120&nbsp;млн. рублей в&nbsp;год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="120-500 млн. рублей в год" required />
+                <p class="label__text">120-500&nbsp;млн. рублей в&nbsp;год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="500-800 млн. рублей в год" required />
+                <p class="label__text">500-800&nbsp;млн. рублей в&nbsp;год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="от 800 млн. до 2 млрд. рублей в год" required />
+                <p class="label__text">от 800 млн. до&nbsp;2&nbsp;млрд. рублей в&nbsp;год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="Более 2 млрд. рублей в год" required />
+                <p class="label__text">Более 2&nbsp;млрд. рублей в&nbsp;год</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="yearly_revenue" class="radio" value="Пропустить вопрос" required />
+                <p class="label__text">Пропустить вопрос</p>
+              </label>
+            </fieldset>
+
+            <fieldset class="single">
+              <p class="popup-subtitle">Почему не выбирали Авито?</p>
+
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Не знаю, как правильно разместить объявление" required />
+                <p class="label__text">Не&nbsp;знаю, как&nbsp;правильно разместить объявление</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Сомневаюсь, что мои товары кому-то будут интересны" required />
+                <p class="label__text">Сомневаюсь, что мои товары кому-то будут интересны</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Боюсь сложностей в общении с покупателями" required />
+                <p class="label__text">Боюсь сложностей в&nbsp;общении с&nbsp;покупателями</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Скептически отношусь к онлайн-продажам " required />
+                <p class="label__text">Скептически отношусь к&nbsp;онлайн-продажам</p>
+              </label>
+              <label class="label">
+                <input
+                  type="radio"
+                  name="no_avito_reason"
+                  class="radio"
+                  value="Для продажи личных вещей использую сообщества в социальных сетях"
+                  required
+                />
+                <p class="label__text">Для продажи личных вещей использую сообщества в&nbsp;социальных сетях</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Реализую свой товар на рынках" required />
+                <p class="label__text">Реализую свой товар на&nbsp;рынках</p>
+              </label>
+              <label class="label">
+                <input type="radio" name="no_avito_reason" class="radio" value="Другое (место для свободного ответа)" required />
+                <p class="label__text">Другое (место для свободного ответа)</p>
+              </label>
+            </fieldset>
+
+            <p class="popup-subtitle">Согласие на&nbsp;обработку Персональных данных</p>
+
+            <label class="label">
+              <input type="checkbox" name="privacy_policy" class="checkbox" value="Да" required />
+              <p class="label__text">Я соглашаюсь на&nbsp;обработку ПД в&nbsp;соответствии <br />с&nbsp;условиями политики конфиденциальности</p>
+            </label>
+
+            <p class="popup-subtitle">
+              Мы хотим делиться с вами инсайтами и интересными предложениями по электронной почте. Согласны присоединиться к рассылке? Обещаем писать
+              только по делу.
+            </p>
+
+            <p class="popup-subtitle">Согласие на рекламно-информационную рассылку</p>
+
+            <label class="label">
+              <input type="radio" name="marketing_subscription" class="radio" value="Согласен на рекламно-информационную рассылку" required />
+              <p class="label__text">Согласен на рекламно-информационную рассылку</p>
+            </label>
+
+            <label class="label">
+              <input type="radio" name="marketing_subscription" class="radio" value="Нет, мне это не интересно" required />
+              <p class="label__text">Нет, мне это не интересно</p>
+            </label>
+
+            <p class="popup-subtitle">Спасибо, что ответили на все вопросы!</p>
 
             <button type="submit" class="button"><span>Я в деле</span></button>
           </form>
@@ -502,7 +957,13 @@
           <button class="popup-close" data-popup-close></button>
 
           <h2 class="popup-title">Теперь вы в&nbsp;деле!</h2>
-          <p class="popup-subtitle">Регистрация прошла успешно! <br />Будем ждать вас на&nbsp;бизнес-конференции</p>
+          <p class="popup-subtitle">Заявка успешно отправлена!</p>
+          <p class="popup-subtitle">Благодарим вас за уделенное время и с нетерпением ждем встречи в MТС Live Hall.</p>
+          <p class="popup-subtitle">
+            Нам понадобится время для обработки данных. Ответ пришлем в течение 3 рабочих дней на электронную почту. Будем на связи!
+          </p>
+          <p class="popup-subtitle">Пока ожидаете подтверждение регистрации забирайте стикер-пак и используйте его по делу!</p>
+          <p class="popup-subtitle"><a href="#" class="link" download>Стикер-пак</a></p>
 
           <img src="./assets/img/svg/ok.svg" alt="Авито" class="popup-image" />
         </div>

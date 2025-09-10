@@ -150,6 +150,11 @@ span.input-icon {
       opacity: 0;
     }
   }
+
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
 }
 
 textarea::-webkit-scrollbar {
@@ -180,18 +185,23 @@ textarea {
   + .label__text {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
     position: relative;
     left: 0px;
     top: 0px;
     background: none;
     width: 100%;
+    min-height: 56px;
+    border: 3px solid #f0f0f0;
+    border-radius: 20px;
     font-family: var(--input-font-family);
-    padding-left: 40px;
-    font-size: 14px;
+    padding: 5px 20px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.2;
     color: inherit;
+    text-align: center;
     cursor: pointer;
 
     span {
@@ -214,12 +224,12 @@ textarea {
       content: '';
       display: block;
       position: absolute;
-      left: 0px;
-      top: 5px;
-      width: 24px;
-      height: 24px;
-      border-radius: 8px;
-      border: 2px solid var(--white);
+      right: calc(100% + 15px);
+      top: -3px;
+      width: 56px;
+      height: 56px;
+      border-radius: 56px;
+      border: 3px solid #f0f0f0;
       background: var(--white);
     }
   }
@@ -227,8 +237,8 @@ textarea {
   &:checked {
     + p {
       &:before {
-        background: var(--white) url('../img/svg/radio.svg') no-repeat center center;
-        background-size: 60% 60%;
+        background: var(--gradient);
+        border: 3px solid var(--white);
       }
     }
   }
@@ -237,7 +247,16 @@ textarea {
     + p {
       color: var(--invalid);
       &:before {
-        border: 1px solid var(--invalid);
+        border: 3px solid var(--invalid);
+      }
+    }
+    &:checked {
+      + p {
+        color: var(--color);
+        &:before {
+          background: var(--gradient);
+          border: 3px solid var(--white);
+        }
       }
     }
   }
