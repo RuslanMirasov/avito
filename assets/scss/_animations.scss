@@ -1,0 +1,41 @@
+// animation: rotate 0.5s linear infinite;
+
+/* Вращение по кругу */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes clock-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+[data-animation] {
+  position: relative;
+  transition: 1.5s;
+}
+
+[data-animation].animated {
+  transform: translate(0px, 0px) rotate(0deg) scale(1) !important;
+  opacity: 1 !important;
+}
+
+[data-animation='fade-up'] {
+  transform: translate(0px, 40px);
+  opacity: 0;
+}
+
+[data-animation='fade'] {
+  opacity: 0;
+}

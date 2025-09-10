@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Авито" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/css/styles.min.css" />
+    <title>Авито</title>
+  </head>
+
+  <body class="body">
+    <!--PRELOADER-->
+    <div class="preloader" data-preloader>
+      <span>
+        <img src="./assets/img/svg/preloader.svg" alt="Авито" />
+      </span>
+    </div>
+
+    <!--HEADER-->
+    <header class="header">
+      <div class="container">
+        <a href="./" class="logo" aria-label="Авито">
+          <img src="./assets/img/svg/logo.svg" alt="Авито" />
+        </a>
+
+        <nav class="navigation">
+          <ul class="menu">
+            <li><a href="#about" class="menu__link" data-scrollto>О конференции</a></li>
+            <li><a href="#speakers" class="menu__link" data-scrollto>Спикеры</a></li>
+            <li><a href="./" class="menu__link" data-scrollto>Расписание</a></li>
+            <li><a href="./" class="menu__link" data-scrollto>Трансляция</a></li>
+            <li><a href="./" class="menu__link" data-scrollto>Местоположение</a></li>
+            <li><a href="./" class="menu__link" data-scrollto>FAQ</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="button button--small" data-popup-open="callback"><span>Обратная связь</span></button>
+
+        <ul class="socials">
+          <li>
+            <a href="#" class="button button--small" target="_blank">
+              <img src="./assets/img/svg/telegram.svg" alt="Авито" />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="button button--small" target="_blank">
+              <img src="./assets/img/svg/reddit.svg" alt="Авито" />
+            </a>
+          </li>
+        </ul>
+
+        <button class="burger">
+          <span>Меню бургер</span>
+        </button>
+      </div>
+    </header>
+
+    <!--FIXED SECTIONS PAGINATION-->
+    <ul class="fixed-pagination">
+      <li>
+        <a href="#some-section" data-scrollto data-section-pagination></a>
+      </li>
+      <li>
+        <a href="#some-section" data-scrollto data-section-pagination></a>
+      </li>
+      <li>
+        <a href="#some-section" data-scrollto data-section-pagination></a>
+      </li>
+      <li>
+        <button type="button" class="button button--medium" data-popup-open="register"><span>Я в деле</span></button>
+      </li>
+      <li>
+        <a href="#speakers" data-scrollto data-section-pagination></a>
+      </li>
+      <li>
+        <a href="#about" data-scrollto data-section-pagination></a>
+      </li>
+      <li>
+        <a href="#hero" data-scrollto data-section-pagination class="active"></a>
+      </li>
+    </ul>
+
+    <main class="main">
+      <!--SECTION HERO-->
+      <section class="section section--hero dark" id="hero">
+        <div class="container">
+          <div class="hero-logo">
+            <img src="./assets/img/svg/logo.svg" alt="Авито" />
+            <h1>Бизнес-конференция <br />для продавцов</h1>
+          </div>
+
+          <ul class="hero-list">
+            <li>
+              <span>14 октября</span>
+            </li>
+            <li><span>Онлайн и Офлайн</span></li>
+            <li><span>Екатеринбург</span></li>
+            <li><span>MTC Live Hall</span></li>
+          </ul>
+
+          <button type="button" class="button" data-popup-open="register"><span>Я в деле</span></button>
+        </div>
+      </section>
+
+      <!--SECTION ABOUT-->
+      <section class="section section--about" id="about">
+        <div class="container">
+          <div class="countdown">
+            <h2 class="title">До начала конференции</h2>
+            <ul>
+              <li>
+                <strong data-days>00</strong>
+                <p>дней</p>
+              </li>
+              <li>
+                <strong data-hours>00</strong>
+                <p>часов</p>
+              </li>
+              <li>
+                <strong data-minutes>00</strong>
+                <p>минут</p>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="stats">
+            <li data-animation="fade-up">
+              <strong><span data-digit-animation>70 000 000</span></strong>
+              <p>уникальных пользователей<br />Авито ежемесячно</p>
+            </li>
+            <li data-animation="fade-up">
+              <strong><span data-digit-animation>500 000</span>+</strong>
+              <p>сделок в день</p>
+            </li>
+            <li data-animation="fade-up">
+              <strong><span data-digit-animation>17 500 000</span></strong>
+              <p>ежедневная аудитория</p>
+            </li>
+            <li data-animation="fade-up">
+              <strong><span data-digit-animation>9</span> минут</strong>
+              <p>средняя сессия<br />пользователя</p>
+            </li>
+            <li data-animation="fade-up">
+              <strong><span data-digit-animation>10</span>+</strong>
+              <p>сделок в секунду</p>
+            </li>
+          </ul>
+
+          <div class="rules-wrapper">
+            <h2 class="title ta--l">Авито — ведущая онлайн-платформа, где каждый может <br />продавать по своим правилам!</h2>
+
+            <ul class="rules">
+              <li data-animation="fade-up">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum magnam maxime ratione adipisci laborum. Repudiandae quis eius cumque,
+                  hic dolor eos in voluptate, provident aspernatur distinctio, nihil at doloribus necessitatibus.
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum magnam maxime ratione adipisci laborum. Repudiandae quis eius cumque,
+                  hic dolor eos in voluptate, provident aspernatur distinctio, nihil at doloribus necessitatibus.
+                </p>
+              </li>
+
+              <li data-animation="fade-up">
+                <p>Вход бесплатный. Вы можете принять участие очно — в&nbsp;Екатеринбурге, на&nbsp;площадке МТС&nbsp;Live&nbsp;Hall или онлайн</p>
+                <ul class="online-offline">
+                  <li>
+                    <strong><span>online</span></strong>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum necessitatibus vero labore perspiciatis maxime eligendi nihil
+                      numquam sit eum nisi voluptas expedita quas inventore tempora, facere id quaerat iusto. Id.
+                    </p>
+                  </li>
+                  <li>
+                    <strong><span>offline</span></strong>
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum necessitatibus vero labore perspiciatis maxime eligendi nihil
+                      numquam sit eum nisi voluptas expedita quas inventore tempora, facere id quaerat iusto. Id.
+                    </p>
+                  </li>
+                </ul>
+              </li>
+
+              <li data-animation="fade-up">
+                <p>
+                  Не пропустите одно из&nbsp;главных событий осени для ритейлеров. Поговорим о&nbsp;бизнесе и&nbsp;продажах четко
+                  и&nbsp;«По&nbsp;делу».
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="audience-wrapper">
+            <h2 class="title ta--l">Для кого эта конференция?</h2>
+
+            <ul class="audience">
+              <li data-animation="fade-up" data-delay="0">Владельцы/собственники <br />бизнеса</li>
+              <li data-animation="fade-up" data-delay="300">Маркетологи</li>
+              <li data-animation="fade-up" data-delay="600">Сотрудники отдела <br />продаж</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!--SECTION SPEAKERS-->
+      <section class="section section--speakers" data-slider data-slides-per-view="4,3,1" id="speakers">
+        <div class="container">
+          <div class="title-box">
+            <h2 class="title">Спикеры</h2>
+            <p class="subtitle">Расскажут объективно о бизнесе</p>
+          </div>
+
+          <div class="swiper swiper--speakers">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/1.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Джаксылыков Александр</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/2.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/3.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/4.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/1.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/2.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/3.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+              <div class="swiper-slide">
+                <article class="speaker">
+                  <div class="speaker__image">
+                    <div class="image">
+                      <img src="./assets/img/speakers/4.webp" alt="" />
+                    </div>
+                  </div>
+                  <div class="speaker__description">
+                    <h3>Иван Гуз</h3>
+                    <p>Управляющий партнер по&nbsp;развитию бизнеса Авито</p>
+                  </div>
+                  <p>Название выступления</p>
+                </article>
+              </div>
+            </div>
+
+            <button class="swiper-arrow" data-arrow-prev></button>
+            <button class="swiper-arrow" data-arrow-next></button>
+          </div>
+        </div>
+      </section>
+
+      <!--SECTION CHATBOT-->
+      <section class="section section--chatbot">
+        <div class="container">
+          <div class="title-box">
+            <h2 class="title">Чат-бот</h2>
+            <p class="subtitle">Сканируйте QR-код, чтобы не пропустить важное! <br />Пишем только по делу.</p>
+          </div>
+
+          <img src="./assets/img/qr-code.webp" alt="" class="qr-code" />
+
+          <a href="#" class="button"><span>Перейти в телеграм</span></a>
+        </div>
+      </section>
+    </main>
+
+    <!--FOOTER-->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-logo">
+          <img src="./assets/img/svg/logo.svg" alt="Авито" />
+          <p>Copyright &copy; 2025 Авито</p>
+        </div>
+
+        <div class="footer-lists">
+          <ul class="footer-lists__buttons">
+            <li>
+              <a href="#" class="footer-btn footer-btn--green">
+                <span>Присоединиться к чат-бот</span>
+                <img src="./assets/img/svg/telegram-white.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="#" class="footer-btn footer-btn--blue">
+                <span>Поделиться с другом в телеграм</span>
+                <img src="./assets/img/svg/reddit-white.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+
+          <ul class="footer-lists__links">
+            <li>
+              <a href="#">Политика конфиденциальности</a>
+            </li>
+            <li>
+              <a href="#">Пользовательское соглашение</a>
+            </li>
+            <li>
+              <button type="button" class="button button--small" data-popup-open="callback"><span>Обратная связь</span></button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!--POPUPS-->
+    <div class="backdrop" data-backdrop>
+      <div class="popup" data-popup>
+        <!--REGISTRATION POPUP-->
+        <div class="popup-content" id="register">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Регистрация</h2>
+          <p class="popup-subtitle">Зарегистрируйтесь на бизнес-конференцию <br />прямо сейчас!</p>
+          <p class="popup-subtitle">Заполняйте все поля регистрации и получайте фирменный стикер-пак</p>
+
+          <!--Login form-->
+          <script>
+            function onRegisterFormSubmit(e) {
+              e.preventDefault();
+              window.popup.open('register-success');
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onRegisterFormSubmit(event)">
+            <label class="label">
+              <input type="text" name="name" class="input" placeholder="Ваше имя" required />
+            </label>
+
+            <label class="label">
+              <input type="text" name="sername" class="input" placeholder="Ваша фамилия" required />
+            </label>
+
+            <label class="label">
+              <input type="email" name="email" class="input" placeholder="Ваш e-mail" required />
+            </label>
+
+            <label class="label">
+              <input type="tel" name="phone" class="input" placeholder="Ваш телефон +7 (..." required />
+            </label>
+
+            <button type="submit" class="button"><span>Я в деле</span></button>
+          </form>
+
+          <p class="popup-text">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфидициальности</a></p>
+        </div>
+
+        <!--CALLBACK POPUP-->
+        <div class="popup-content" id="callback">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Обратная связь</h2>
+          <p class="popup-subtitle">Пожалуйста, заполните форму и&nbsp;напишите Ваш вопрос<br />и&nbsp;мы обязательно свяжемся с&nbsp;Вами!</p>
+
+          <!--Login form-->
+          <script>
+            function onCallbackFormSubmit(e) {
+              e.preventDefault();
+              window.popup.open('callback-success');
+            }
+          </script>
+          <form action="#" class="form" novalidate onsubmit="onCallbackFormSubmit(event)">
+            <label class="label">
+              <input type="text" name="name" class="input" placeholder="Ваше имя" required />
+            </label>
+
+            <label class="label">
+              <input type="text" name="sername" class="input" placeholder="Ваша фамилия" required />
+            </label>
+
+            <label class="label">
+              <input type="email" name="email" class="input" placeholder="Ваш e-mail" required />
+            </label>
+
+            <label class="label">
+              <textarea name="message" class="input input--textarea" placeholder="Ваш вопрос" required></textarea>
+            </label>
+
+            <button type="submit" class="button"><span>Отправить вопрос</span></button>
+          </form>
+
+          <p class="popup-text">Нажимая кнопку, вы соглашаетесь с <a href="#" target="_blank">политикой конфидициальности</a></p>
+        </div>
+
+        <!--REGISTER SUCCESS POPUP-->
+        <div class="popup-content" id="register-success">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Теперь вы в&nbsp;деле!</h2>
+          <p class="popup-subtitle">Регистрация прошла успешно! <br />Будем ждать вас на&nbsp;бизнес-конференции</p>
+
+          <img src="./assets/img/svg/ok.svg" alt="Авито" class="popup-image" />
+        </div>
+
+        <!--CALLBACK SUCCESS POPUP-->
+        <div class="popup-content" id="callback-success">
+          <button class="popup-close" data-popup-close></button>
+
+          <h2 class="popup-title">Cпасибо!</h2>
+          <p class="popup-subtitle">Ваша заявка отправлена, наш менеджер свяжется с&nbsp;вами в&nbsp;ближайшее время</p>
+
+          <img src="./assets/img/svg/ok.svg" alt="Авито" class="popup-image" />
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/forms.js" type="module"></script>
+    <script src="./assets/js/scripts.js" type="module"></script>
+  </body>
+</html>

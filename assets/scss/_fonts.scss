@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'aeroport-light';
+  src: url('../fonts/aeroport-light.woff2') format('woff2'), url('../fonts/aeroport-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'aeroport-regular';
+  src: url('../fonts/aeroport-regular.woff2') format('woff2'), url('../fonts/aeroport-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'aeroport-medium';
+  src: url('../fonts/aeroport-medium.woff2') format('woff2'), url('../fonts/aeroport-medium.woff') format('woff');
+  font-weight: 550;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'aeroport-bold';
+  src: url('../fonts/aeroport-bold.woff2') format('woff2'), url('../fonts/aeroport-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

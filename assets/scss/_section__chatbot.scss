@@ -1,0 +1,15 @@
+.section--chatbot {
+  padding: 60px 0px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 35px;
+  }
+}
+
+.qr-code {
+  width: 300px;
+}

@@ -1,0 +1,36 @@
+:root {
+  --light: 'aeroport-light', sans-serif;
+  --regular: 'aeroport-regular', sans-serif;
+  --medium: 'aeroport-medium', sans-serif;
+  --bold: 'aeroport-bold', sans-serif;
+
+  --bg: #f5f5f5;
+  --color: #40464d;
+  --white: #ffffff;
+  --black: #000000;
+  --blue: #00aaff;
+  --viola: #965eeb;
+  --green: #15d967;
+  --grey: #b3b5b8;
+  --invalid: #ff4053;
+  --gradient: linear-gradient(90deg, var(--blue), var(--viola));
+}
+
+@import 'fonts';
+@import 'mixins';
+@import 'animations';
+@import 'pagination';
+@import 'preloader';
+@import 'reset';
+@import 'swiper';
+@import 'header';
+@import 'buttons';
+@import 'typography';
+@import 'forms';
+@import 'footer';
+@import 'popup';
+@import 'section__hero';
+@import 'section__about';
+@import 'section__speakers';
+@import 'section__chatbot';
+@import 'countdown';

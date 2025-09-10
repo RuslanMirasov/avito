@@ -1,0 +1,60 @@
+.fixed-pagination {
+  display: inline-flex;
+  position: fixed;
+  left: calc(100dvw - 195px);
+  top: 50%;
+  z-index: 30;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
+  transform: translate(0%, -50%) rotate(-90deg);
+
+  .button {
+    white-space: nowrap;
+  }
+
+  &.dark {
+    .button {
+      background: rgba(64, 70, 77, 0.4);
+      &:before {
+        opacity: 0;
+      }
+      @media (hover: hover) {
+        &:hover {
+          &:before {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  a:not(.button) {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    background: rgba(64, 70, 77, 0.4);
+    &:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      transition: 0.3s;
+      border-radius: 6px;
+      position: absolute;
+      background: #fff;
+      opacity: 0;
+    }
+
+    &.active {
+      &:before {
+        opacity: 1;
+      }
+    }
+  }
+}

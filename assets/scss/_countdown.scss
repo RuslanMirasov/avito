@@ -1,0 +1,61 @@
+.countdown {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  text-align: center;
+
+  ul {
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 80px;
+    font-family: var(--regular);
+
+    li {
+      position: relative;
+      font-size: 58px;
+      font-family: var(--medium);
+      &:before {
+        content: '';
+        width: 8px;
+        height: 29px;
+        background: url('../img/svg/counter-dots.svg') no-repeat center center/cover;
+        position: absolute;
+        left: calc(100% + 36px);
+        top: 28px;
+        animation: clock-blink 1.2s linear infinite;
+      }
+      &:last-child {
+        &:before {
+          content: none;
+        }
+      }
+      strong {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: relative;
+        background: #fff;
+        width: 170px;
+        height: 88px;
+        border-radius: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        padding-top: 10px;
+      }
+    }
+  }
+}
