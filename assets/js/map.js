@@ -1,6 +1,7 @@
 ymaps.ready(init);
 
 function init() {
+  const iconUrl = new URL('assets/img/svg/pin.svg', window.location.origin + window.location.pathname).href;
   const zoom = window.innerWidth <= 767 ? 11 : 14;
   const map = new ymaps.Map('map', {
     center: [56.766336, 60.758219],
@@ -25,7 +26,7 @@ function init() {
         },
         {
           iconLayout: 'default#image',
-          iconImageHref: './assets/img/svg/pin.svg',
+          iconImageHref: iconUrl,
           iconImageSize: [54, 70],
           iconImageOffset: [-27, -70],
         }
