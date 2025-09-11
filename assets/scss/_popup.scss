@@ -23,7 +23,7 @@ body.locked {
   overflow-y: scroll;
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
-  padding: 50px 20px;
+  padding: 20px 15px;
   backdrop-filter: blur(5px);
 
   transition: opacity $popup_transition ease-in-out 0s, visibility $popup_transition ease-in-out 0s;

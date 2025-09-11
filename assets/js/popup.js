@@ -54,6 +54,8 @@ export const popup = {
     this._backdrop.classList.remove('active');
 
     await this._waitForTransition(this._backdrop);
+
+    this._scrollBackdropToTop();
     this._unlockScroll();
     this._hideAllContent();
 
@@ -92,6 +94,7 @@ export const popup = {
     await this._waitForTransition(this._backdrop);
     this._hideAllContent();
     newContent.style.display = 'flex';
+    this._scrollBackdropToTop();
     this._popup.classList.add('visible');
     await this._waitForTransition(this._backdrop);
   },
@@ -115,6 +118,28 @@ export const popup = {
     this._popup.querySelectorAll('.popup-content').forEach(el => {
       el.style.display = 'none';
     });
+  },
+
+  _scrollBackdropToTop() {
+    const el = this._backdrop;
+    if (!el) return;
+
+    el.scrollTop = 0;
+    el.scrollLeft = 0;
+
+    if (typeof el.scrollTo === 'function') {
+      try {
+        el.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      } catch {
+        el.scrollTo(0, 0);
+      }
+    }
+
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        el.scrollTop = 0;
+      })
+    );
   },
 
   async _waitForTransition(element, propertyName = 'opacity') {

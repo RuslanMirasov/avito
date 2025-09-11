@@ -47,22 +47,22 @@ const validationRegEx = [
 const validateRadioGroup = input => {
   const form = input.form || document;
   const name = input.name;
-  const type = input.type;
 
-  const group = [...form.querySelectorAll(`input[type="${type}"][name="${CSS.escape(name)}"]`)];
+  const group = [...form.querySelectorAll(`[name="${CSS.escape(name)}"]`)];
   if (group.length === 0) return true;
-
-  const isChecked = group.some(el => el.checked);
+  const isChecked = group.some(el => (el.type === 'radio' || el.type === 'checkbox') && el.checked);
+  const hasText = group.some(el => el.type === 'text' && el.value.trim() !== '');
+  const isValid = isChecked || hasText;
 
   group.forEach(el => {
-    if (isChecked) {
+    if (isValid) {
       el.classList.remove('invalid');
     } else {
       el.classList.add('invalid');
     }
   });
 
-  return isChecked;
+  return isValid;
 };
 
 const validateInput = input => {
@@ -74,7 +74,11 @@ const validateInput = input => {
     return false;
   };
 
-  const { name, value, checked, type, files } = input;
+  const { name, value, type, files } = input;
+
+  if (type === 'text' && input.classList.contains('input--checkable')) {
+    return validateRadioGroup(input);
+  }
 
   if (type === 'radio' || type === 'checkbox') {
     return validateRadioGroup(input);
@@ -219,6 +223,12 @@ document.addEventListener('blur', e => {
   }
 });
 
+document.addEventListener('input', e => {
+  if (e.target.type === 'text' && e.target.classList.contains('input--checkable')) {
+    validateRadioGroup(e.target);
+  }
+});
+
 document.addEventListener('change', e => {
   if (e.target.nodeName === 'SELECT') {
     setTimeout(() => {
@@ -357,6 +367,24 @@ document.addEventListener(
     if (!isValid) {
       event.preventDefault();
       event.stopImmediatePropagation();
+
+      //СКРОЛЛИМ К ОШИБКЕ
+      const backdrop = form.closest('.backdrop');
+      const firstInvalid = form.querySelector('.invalid');
+      if (!firstInvalid) return;
+
+      const offset = 50;
+
+      if (backdrop) {
+        const top = firstInvalid.getBoundingClientRect().top - backdrop.getBoundingClientRect().top + backdrop.scrollTop - offset;
+
+        backdrop.scrollTo({ top, behavior: 'smooth' });
+      } else {
+        const top = firstInvalid.getBoundingClientRect().top + window.pageYOffset - offset;
+
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      //СКРОЛЛИМ К ОШИБКЕ - КОНЕЦ
     }
   },
   true

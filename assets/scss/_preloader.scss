@@ -31,9 +31,7 @@
     transition: 1s;
     transform: scale(1);
     z-index: 3;
-    @media (max-width: 1023px) {
-      width: 180px;
-    }
+
     img {
       position: absolute;
       width: 100%;

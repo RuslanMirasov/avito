@@ -2,6 +2,12 @@
   display: inline-flex;
   position: fixed;
   left: calc(100dvw - 195px);
+  @media (max-width: 1365px) {
+    left: calc(100dvw - 170px);
+  }
+  @media (max-width: 767px) {
+    display: none;
+  }
   top: 50%;
   z-index: 30;
   justify-content: center;

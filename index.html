@@ -35,10 +35,14 @@
             <li><a href="#broadcast" class="menu__link" data-scrollto>Трансляция</a></li>
             <li><a href="#maps" class="menu__link" data-scrollto>Местоположение</a></li>
             <li><a href="#faq" class="menu__link" data-scrollto>FAQ</a></li>
+            <li>
+              <button type="button" class="button button--small" data-popup-open="callback"><span>Обратная связь</span></button>
+            </li>
+            <li>
+              <button type="button" class="button button--small" data-popup-open="register"><span>Я в деле</span></button>
+            </li>
           </ul>
         </nav>
-
-        <button type="button" class="button button--small" data-popup-open="callback"><span>Обратная связь</span></button>
 
         <ul class="socials">
           <li>
@@ -54,6 +58,7 @@
         </ul>
 
         <button class="burger">
+          <div class="burger_hover_background"></div>
           <span>Меню бургер</span>
         </button>
       </div>
@@ -390,13 +395,13 @@
           <ul class="footer-lists__buttons">
             <li>
               <a href="#" class="footer-btn footer-btn--green">
-                <span>Присоединиться к чат-бот</span>
+                <span>Присоединиться к чат-боту</span>
                 <img src="./assets/img/svg/telegram-white.svg" alt="" />
               </a>
             </li>
             <li>
               <a href="#" class="footer-btn footer-btn--blue">
-                <span>Поделиться с другом в телеграм</span>
+                <span>Поделиться с другом в Телеграм</span>
                 <img src="./assets/img/svg/reddit-white.svg" alt="" />
               </a>
             </li>
@@ -554,8 +559,7 @@
               </label>
 
               <label class="label">
-                <input type="radio" name="company_role" class="radio" required value="Другое (место для свободного ответа)" />
-                <p class="label__text">Другое (место для свободного ответа)</p>
+                <input type="text" name="company_role" class="input input--checkable" placeholder="Другое (место для свободного ответа)" required />
               </label>
 
               <p class="popup-subtitle">Кому вы продаете товары?</p>
@@ -612,8 +616,13 @@
                 <p class="label__text">Хобби (аксессуары и вещи ручной работы)</p>
               </label>
               <label class="label">
-                <input type="checkbox" name="product_category" class="checkbox" required value="Другое (место для свободного ответа)" />
-                <p class="label__text">Другое (место для свободного ответа)</p>
+                <input
+                  type="text"
+                  name="product_category"
+                  class="input input--checkable"
+                  placeholder="Другое (место для свободного ответа)"
+                  required
+                />
               </label>
             </fieldset>
 
@@ -652,11 +661,11 @@
               <p class="popup-subtitle">Укажите Авито ID <br /><a href="#" class="link">Где найти Авито ID?</a></p>
 
               <label class="label">
-                <input type="text" name="avito_id" class="input avitoId" required placeholder="Ваш Авито ID" />
+                <input type="text" name="avito_id" class="input input--checkable" placeholder="Ваш Авито ID" required />
               </label>
 
               <label class="label">
-                <input type="checkbox" name="skip_question" class="checkbox" value="Пропустить вопрос" />
+                <input type="checkbox" name="avito_id" class="checkbox" value="Пропустить вопрос" />
                 <p class="label__text">Пропустить вопрос</p>
               </label>
 
@@ -695,8 +704,13 @@
                 <p class="label__text">Оборудование для бизнеса</p>
               </label>
               <label class="label">
-                <input type="checkbox" name="product_category" class="checkbox" value="Другое (место для свободного ответа)" required />
-                <p class="label__text">Другое (место для свободного ответа)</p>
+                <input
+                  type="text"
+                  name="product_category"
+                  class="input input--checkable"
+                  placeholder="Другое (место для свободного ответа)"
+                  required
+                />
               </label>
 
               <p class="popup-subtitle">Укажите годовой оборот вашего бизнеса</p>
@@ -812,8 +826,13 @@
                 <p class="label__text">Неудобная организация логистики</p>
               </label>
               <label class="label">
-                <input type="radio" name="no_avito_reason" class="radio" value="Другое (место для свободного ответа)" required />
-                <p class="label__text">Другое (место для свободного ответа)</p>
+                <input
+                  type="text"
+                  name="no_avito_reason"
+                  class="input input--checkable"
+                  placeholder="Другое (место для свободного ответа)"
+                  required
+                />
               </label>
 
               <p class="popup-subtitle">Укажите годовой оборот вашего бизнеса</p>
@@ -878,8 +897,13 @@
                 <p class="label__text">Реализую свой товар на&nbsp;рынках</p>
               </label>
               <label class="label">
-                <input type="radio" name="no_avito_reason" class="radio" value="Другое (место для свободного ответа)" required />
-                <p class="label__text">Другое (место для свободного ответа)</p>
+                <input
+                  type="text"
+                  name="no_avito_reason"
+                  class="input input--checkable"
+                  placeholder="Другое (место для свободного ответа)"
+                  required
+                />
               </label>
             </fieldset>
 
