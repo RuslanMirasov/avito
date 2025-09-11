@@ -21,9 +21,9 @@
   align-items: center;
   align-content: center;
   width: auto;
-  min-width: 56px;
-  min-height: 56px;
-  border-radius: 56px;
+  min-width: myclamp(42px, 56px, 1440px, 1440px);
+  min-height: myclamp(42px, 56px, 1440px, 1440px);
+  border-radius: myclamp(42px, 56px, 1440px, 1440px);
   gap: 10px;
   padding: 10px 32px;
   background: var(--blue);
@@ -93,7 +93,7 @@
     position: relative;
     z-index: 3;
     font-family: var(--regular);
-    font-size: 24px;
+    font-size: myclamp(16px, 24px, 1440px, 1440px);
     font-weight: 400;
     line-height: 1;
     color: var(--white);

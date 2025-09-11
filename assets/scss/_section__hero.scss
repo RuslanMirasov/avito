@@ -1,8 +1,16 @@
 .section--hero {
   height: 100svh;
-  min-height: 620px;
+  max-height: 950px;
+  min-height: myclamp(390px, 620px, 1440px, 1440px);
   background: url('../img/hero-bg.webp') no-repeat center center/cover;
   padding: 60px 0px;
+
+  @media (max-width: 767px) {
+    height: 390px;
+    padding: 60px 0px 20px 0px;
+    margin-top: 20px;
+    background: url('../img/hero-bg-mobil.webp') no-repeat center center/cover;
+  }
 
   .container {
     display: flex;
@@ -13,7 +21,7 @@
     align-content: center;
 
     .button {
-      min-width: 264px;
+      min-width: myclamp(168px, 264px, 1440px, 1440px);
       margin-top: auto;
     }
   }
@@ -27,18 +35,31 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 40px;
+  gap: myclamp(14px, 40px, 1440px, 1440px);
   transform: translate(0px, -20svh);
   img {
-    width: 196px;
+    width: myclamp(110px, 196px, 1440px, 1440px);
   }
 
   h1 {
     font-family: var(--light);
-    font-weight: 300;
-    font-size: 22px;
+    font-size: myclamp(12px, 22px, 1440px, 1440px);
     line-height: 1;
     color: var(--black);
+    @media (max-width: 767px) {
+      font-family: var(--medium);
+    }
+  }
+  @media (max-width: 767px) {
+    transform: translate(0px, -114px);
+  }
+
+  @media (max-height: 620px) {
+    transform: translate(0px, -120px);
+  }
+
+  @media (min-height: 950px) {
+    transform: translate(0px, -200px);
   }
 }
 
@@ -50,20 +71,28 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  gap: 18px;
+  gap: myclamp(6px, 18px, 1440px, 1440px);
   transform: translate(0px, 20svh);
+  @media (max-width: 767px) {
+    transform: translate(0px, 64px);
+  }
+  @media (max-height: 620px) {
+    transform: translate(0px, 120px);
+  }
+  @media (min-height: 950px) {
+    transform: translate(0px, 200px);
+  }
 
   li {
     display: flex;
     position: relative;
-    height: 58px;
-    padding: 15px 22px;
+    height: myclamp(20px, 58px, 1440px, 1440px);
+    padding: myclamp(5px, 15px, 1440px, 1440px) myclamp(4px, 22px, 1440px, 1440px);
     border-radius: 58px;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     align-content: center;
-    gap: 20px;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
 
@@ -73,9 +102,12 @@
     span {
       font-family: var(--medium);
       font-weight: 500;
-      font-size: 30px;
+      font-size: myclamp(10px, 30px, 1440px, 1440px);
       line-height: 1;
       color: var(--black);
     }
   }
+}
+
+@media (max-width: 1279px) {
 }
