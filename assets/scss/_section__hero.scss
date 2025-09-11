@@ -74,14 +74,15 @@
   align-content: center;
   gap: myclamp(6px, 18px, 1440px, 1440px);
   transform: translate(0px, 20svh);
-  @media (max-width: 767px) {
-    transform: translate(0px, 64px);
-  }
+
   @media (max-height: 620px) {
     transform: translate(0px, 120px);
   }
   @media (min-height: 950px) {
     transform: translate(0px, 200px);
+  }
+  @media (max-width: 767px) {
+    transform: translate(0px, 64px);
   }
 
   li {

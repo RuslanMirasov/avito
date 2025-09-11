@@ -110,6 +110,11 @@ span.input-icon {
     padding: 20px var(--input-padding);
   }
 
+  &.input--checkable {
+    &::placeholder {
+      color: var(--color);
+    }
+  }
   &.placeholder {
     color: var(--input-placeholder-color);
     + .input-icon {

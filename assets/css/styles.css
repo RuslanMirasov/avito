@@ -757,6 +757,7 @@ a {
   transition: 0.2s;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
   transform: translate(0px, 0px);
+  z-index: 1;
 }
 .button:before {
   content: "";
@@ -774,6 +775,7 @@ a {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  border-radius: 50px;
 }
 .button.button--medium {
   min-width: 46px;
@@ -1002,6 +1004,15 @@ span.input-icon {
 .input.input--textarea {
   height: 134px;
   padding: 20px var(--input-padding);
+}
+.input.input--checkable::-moz-placeholder {
+  color: var(--color);
+}
+.input.input--checkable:-ms-input-placeholder {
+  color: var(--color);
+}
+.input.input--checkable::placeholder {
+  color: var(--color);
 }
 .input.placeholder {
   color: var(--input-placeholder-color);
@@ -1469,6 +1480,11 @@ select.open + .input-icon {
     font-size: 16px;
   }
 }
+@media (max-width: 374px) {
+  .footer-btn {
+    font-size: 15px;
+  }
+}
 body.locked {
   overflow-x: hidden;
   overflow-y: hidden;
@@ -1782,11 +1798,6 @@ body.locked {
   gap: clamp(6px, 1.25vw, 18px);
   transform: translate(0px, 20svh);
 }
-@media (max-width: 767px) {
-  .hero-list {
-    transform: translate(0px, 64px);
-  }
-}
 @media (max-height: 620px) {
   .hero-list {
     transform: translate(0px, 120px);
@@ -1795,6 +1806,11 @@ body.locked {
 @media (min-height: 950px) {
   .hero-list {
     transform: translate(0px, 200px);
+  }
+}
+@media (max-width: 767px) {
+  .hero-list {
+    transform: translate(0px, 64px);
   }
 }
 .hero-list li {
@@ -2511,7 +2527,7 @@ body.locked {
     font-size: 28px;
   }
   .countdown ul li strong {
-    width: 86px;
+    width: 80px;
     height: 42px;
     border-radius: 10px;
   }
