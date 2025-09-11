@@ -40,7 +40,7 @@ export const initSliders = () => {
             spaceBetween: Number(spaceBetween.split(',')[2]),
             initialSlide: Number(initialSlide.split(',')[2]),
           },
-          768: {
+          1024: {
             slidesPerView: Number(slidesPerView.split(',')[1]),
             slidesPerGroup: Number(slidesPerGroup.split(',')[1]),
             spaceBetween: Number(spaceBetween.split(',')[1]),

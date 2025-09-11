@@ -16,7 +16,7 @@
   text-align: center;
 
   &.title--h2 {
-    font-size: 48px;
+    font-size: myclamp(40px, 48px, 1440px, 1440px);
   }
 
   &.ta--l {
@@ -25,6 +25,6 @@
 }
 
 .subtitle {
-  font-size: 22px;
+  font-size: myclamp(20px, 22px, 1440px, 1440px);
   line-height: 1.2;
 }
