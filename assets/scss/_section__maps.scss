@@ -1,10 +1,19 @@
 .section--maps {
   padding: 60px 0px;
+  @media (max-width: 767px) {
+    padding: 30px 0px;
+  }
 }
 
 .swiper--maps {
   margin-top: 40px;
   overflow: visible;
+  @media (max-width: 1279px) {
+    max-width: 910px;
+  }
+  @media (max-width: 1023px) {
+    max-width: 640px;
+  }
   .swiper-slide {
     display: flex;
     position: relative;
@@ -13,10 +22,10 @@
     justify-content: space-between;
     align-items: flex-start;
     align-content: flex-start;
-    gap: 40px;
+    gap: myclamp(24px, 40px, 1440px, 1440px);
 
     background: var(--white);
-    padding: 40px;
+    padding: myclamp(20px, 40px, 1440px, 1440px);
     border-radius: 20px;
     transition: 0.6s;
 
@@ -30,21 +39,53 @@
 .map {
   display: block;
   position: relative;
-  //overflow: hidden;
-  width: 646px;
+  width: 100%;
+  max-width: myclamp(500px, 646px, 1440px, 1440px);
   height: 530px;
   border-radius: 20px;
   background: var(--bg);
+  overflow: hidden;
+  @media (max-width: 1023px) {
+    max-width: 100%;
+    height: 400px;
+  }
+  @media (max-width: 767px) {
+    height: 280px;
+  }
 }
 
 .map-description {
   display: flex;
   width: 100%;
+  max-width: 362px;
+  margin-top: auto;
+  padding-bottom: 20px;
+  margin-right: auto;
   flex: 1;
   position: relative;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
+  gap: myclamp(14px, 20px, 1440px, 1440px);
   text-align: left;
+  @media (max-width: 1023px) {
+    max-width: 100%;
+    p {
+      max-width: 520px;
+    }
+  }
+  .button {
+    margin-bottom: 20px;
+    &:first-child {
+      margin-bottom: 0px;
+    }
+    @media (max-width: 1023px) {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      &:first-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
 
   p {
     font-size: 20px;

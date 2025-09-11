@@ -783,6 +783,42 @@ a {
 .button.button--medium span {
   font-size: 18px;
 }
+.button.button--border {
+  min-width: 46px;
+  min-height: 46px;
+  padding: 7px 20px;
+  background: var(--gradient);
+}
+.button.button--border:before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  left: 3px;
+  top: 3px;
+  background: var(--white);
+  border-radius: 50px;
+  opacity: 1;
+}
+.button.button--border span {
+  font-size: 18px;
+  transition: 0.4s;
+  color: var(--color);
+}
+@media (hover: hover) {
+  .button.button--border:hover span {
+    color: var(--white);
+  }
+  .button.button--border:hover:before {
+    opacity: 0;
+  }
+}
+.button.button--border.active span {
+  color: var(--white);
+}
+.button.button--border.active:before {
+  opacity: 0;
+}
 .button.button--small {
   min-width: 36px;
   min-height: 36px;
@@ -1183,6 +1219,96 @@ select.open + .input-icon {
   position: relative;
 }
 
+@media (max-width: 1023px) {
+  fieldset {
+    gap: 14px;
+  }
+  .form {
+    gap: 14px;
+  }
+  .input-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .input {
+    height: 50px;
+    border: 2px solid var(--input-border);
+    border-radius: 14px;
+    font-size: 14px;
+    padding: 0px 20px;
+  }
+  .input.input--textarea {
+    height: 120px;
+    padding: 20px 20px;
+  }
+  .input::-moz-placeholder {
+    font-size: 14px;
+  }
+  .input:-ms-input-placeholder {
+    font-size: 14px;
+  }
+  .input::placeholder {
+    font-size: 14px;
+  }
+  .input.invalid {
+    border: 2px solid var(--invalid);
+  }
+  .input:focus, .input.has-value {
+    border: 2px solid var(--blue);
+  }
+  .input:focus.invalid, .input.has-value.invalid {
+    border: 2px solid var(--invalid);
+  }
+  .input:focus + .label__text, .input.has-value + .label__text {
+    transform: translate(0px, -14px) scale(0.6);
+  }
+  .radio + .label__text,
+.checkbox + .label__text {
+    position: relative;
+    left: 0px;
+    width: calc(100% - 50px);
+    min-height: 50px;
+    border: 2px solid #f0f0f0;
+    padding: 4px 10px;
+    margin-left: auto;
+    font-size: 14px;
+    border-radius: 14px;
+  }
+  .radio + .label__text span,
+.checkbox + .label__text span {
+    padding-top: 9px;
+  }
+  .radio + .label__text:before,
+.checkbox + .label__text:before {
+    right: calc(100% + 10px);
+    top: -2px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #f0f0f0;
+  }
+  .radio:checked + p:before,
+.checkbox:checked + p:before {
+    border: 2px solid var(--white);
+  }
+  .radio.invalid + p:before,
+.checkbox.invalid + p:before {
+    border: 2px solid var(--invalid);
+  }
+  .radio.invalid:checked + p:before,
+.checkbox.invalid:checked + p:before {
+    border: 2px solid var(--white);
+  }
+  .inputError {
+    font-size: 12px;
+  }
+}
+#register .button,
+#register2 .button,
+#register3 .button,
+#register4 .button {
+  margin-top: 30px;
+}
+
 .footer {
   display: block;
   position: relative;
@@ -1486,6 +1612,19 @@ body.locked {
   width: 100%;
   margin-top: 20px;
 }
+@media (max-width: 1023px) {
+  .popup-content {
+    max-width: 500px;
+    padding: 40px 20px;
+  }
+  .popup-content .form {
+    max-width: 375px;
+  }
+  .popup-content .form .popup-subtitle {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
 
 .popup-image {
   position: relative;
@@ -1498,6 +1637,12 @@ body.locked {
   font-family: var(--bold);
   font-size: 34px;
   line-height: 1.2;
+}
+@media (max-width: 1023px) {
+  .popup-title {
+    font-size: 26px;
+    margin-bottom: -10px;
+  }
 }
 
 .popup-subtitle {
@@ -1515,10 +1660,24 @@ body.locked {
   color: var(--blue);
   opacity: 1;
 }
+@media (max-width: 1023px) {
+  .popup-subtitle {
+    font-size: 18px;
+  }
+  .popup-subtitle .link {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+}
 
 .popup-text {
   font-weight: 400;
   font-size: 16px;
+}
+@media (max-width: 1023px) {
+  .popup-text {
+    font-size: 14px;
+  }
 }
 .popup-text a {
   transition: 0.3s;
@@ -1537,6 +1696,10 @@ body.locked {
   background-clip: text;
   color: transparent;
   text-decoration: underline;
+}
+
+#register-success .popup-subtitle .link {
+  font-size: 18px;
 }
 
 .section--hero {
@@ -2161,10 +2324,25 @@ body.locked {
 .section--maps {
   padding: 60px 0px;
 }
+@media (max-width: 767px) {
+  .section--maps {
+    padding: 30px 0px;
+  }
+}
 
 .swiper--maps {
   margin-top: 40px;
   overflow: visible;
+}
+@media (max-width: 1279px) {
+  .swiper--maps {
+    max-width: 910px;
+  }
+}
+@media (max-width: 1023px) {
+  .swiper--maps {
+    max-width: 640px;
+  }
 }
 .swiper--maps .swiper-slide {
   display: flex;
@@ -2174,9 +2352,9 @@ body.locked {
   justify-content: space-between;
   align-items: flex-start;
   align-content: flex-start;
-  gap: 40px;
+  gap: clamp(24px, 2.7778vw, 40px);
   background: var(--white);
-  padding: 40px;
+  padding: clamp(20px, 2.7778vw, 40px);
   border-radius: 20px;
   transition: 0.6s;
   opacity: 0;
@@ -2188,20 +2366,61 @@ body.locked {
 .map {
   display: block;
   position: relative;
-  width: 646px;
+  width: 100%;
+  max-width: clamp(500px, 44.8611vw, 646px);
   height: 530px;
   border-radius: 20px;
   background: var(--bg);
+  overflow: hidden;
+}
+@media (max-width: 1023px) {
+  .map {
+    max-width: 100%;
+    height: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .map {
+    height: 280px;
+  }
 }
 
 .map-description {
   display: flex;
   width: 100%;
+  max-width: 362px;
+  margin-top: auto;
+  padding-bottom: 20px;
+  margin-right: auto;
   flex: 1;
   position: relative;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
+  gap: clamp(14px, 1.3889vw, 20px);
   text-align: left;
+}
+@media (max-width: 1023px) {
+  .map-description {
+    max-width: 100%;
+  }
+  .map-description p {
+    max-width: 520px;
+  }
+}
+.map-description .button {
+  margin-bottom: 20px;
+}
+.map-description .button:first-child {
+  margin-bottom: 0px;
+}
+@media (max-width: 1023px) {
+  .map-description .button {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .map-description .button:first-child {
+    margin-bottom: 0px;
+  }
 }
 .map-description p {
   font-size: 20px;

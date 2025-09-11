@@ -310,3 +310,113 @@ select.open + .input-icon {
   display: block;
   position: relative;
 }
+
+@media (max-width: 1023px) {
+  fieldset {
+    gap: 14px;
+  }
+
+  .form {
+    gap: 14px;
+  }
+
+  .input-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .input {
+    height: 50px;
+    border: 2px solid var(--input-border);
+    border-radius: 14px;
+    font-size: 14px;
+    padding: 0px 20px;
+
+    &.input--textarea {
+      height: 120px;
+      padding: 20px 20px;
+    }
+
+    &::placeholder {
+      font-size: 14px;
+    }
+
+    &.invalid {
+      border: 2px solid var(--invalid);
+    }
+
+    &:focus,
+    &.has-value {
+      border: 2px solid var(--blue);
+      &.invalid {
+        border: 2px solid var(--invalid);
+      }
+      + .label__text {
+        transform: translate(0px, -14px) scale(0.6);
+      }
+    }
+  }
+
+  .radio,
+  .checkbox {
+    + .label__text {
+      position: relative;
+      left: 0px;
+      width: calc(100% - 50px);
+      min-height: 50px;
+      border: 2px solid #f0f0f0;
+      padding: 4px 10px;
+      margin-left: auto;
+      font-size: 14px;
+      border-radius: 14px;
+
+      span {
+        padding-top: 9px;
+      }
+
+      &:before {
+        right: calc(100% + 10px);
+        top: -2px;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #f0f0f0;
+      }
+    }
+
+    &:checked {
+      + p {
+        &:before {
+          border: 2px solid var(--white);
+        }
+      }
+    }
+
+    &.invalid {
+      + p {
+        &:before {
+          border: 2px solid var(--invalid);
+        }
+      }
+      &:checked {
+        + p {
+          &:before {
+            border: 2px solid var(--white);
+          }
+        }
+      }
+    }
+  }
+
+  .inputError {
+    font-size: 12px;
+  }
+}
+
+#register,
+#register2,
+#register3,
+#register4 {
+  .button {
+    margin-top: 30px;
+  }
+}
