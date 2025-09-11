@@ -12,7 +12,7 @@
 .title {
   display: block;
   width: 100%;
-  font-size: 34px;
+  font-size: myclamp(27px, 34px, 1440px, 1440px);
   text-align: center;
 
   &.title--h2 {

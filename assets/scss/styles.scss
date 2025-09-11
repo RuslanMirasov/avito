@@ -14,6 +14,8 @@
   --grey: #b3b5b8;
   --invalid: #ff4053;
   --gradient: linear-gradient(90deg, var(--blue), var(--viola));
+  --gradient-vertical: linear-gradient(0deg, var(--blue), var(--viola));
+  --gradient-vertical-invers: linear-gradient(0deg, var(--viola), var(--blue));
 }
 
 @import 'fonts';

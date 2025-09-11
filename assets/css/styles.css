@@ -14,6 +14,8 @@
   --grey: #b3b5b8;
   --invalid: #ff4053;
   --gradient: linear-gradient(90deg, var(--blue), var(--viola));
+  --gradient-vertical: linear-gradient(0deg, var(--blue), var(--viola));
+  --gradient-vertical-invers: linear-gradient(0deg, var(--viola), var(--blue));
 }
 
 @font-face {
@@ -841,7 +843,7 @@ a {
 .title {
   display: block;
   width: 100%;
-  font-size: 34px;
+  font-size: clamp(27px, 2.3611vw, 34px);
   text-align: center;
 }
 .title.title--h2 {
@@ -1659,10 +1661,31 @@ body.locked {
 .section--about {
   padding: 60px 0px;
 }
+@media (max-width: 1279px) {
+  .section--about h2.title {
+    padding: 0px 60px 0px 30px;
+  }
+  .section--about h2.title br {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .section--about {
+    padding: 30px 0px;
+  }
+  .section--about h2.title {
+    padding: 0px;
+  }
+}
 .section--about .container {
   display: flex;
   flex-direction: column;
   gap: 70px;
+}
+@media (max-width: 767px) {
+  .section--about .container {
+    gap: 50px;
+  }
 }
 
 .stats {
@@ -1698,6 +1721,74 @@ body.locked {
 .stats li:nth-child(3n+3) strong {
   color: var(--viola);
 }
+@media (max-width: 1279px) {
+  .stats {
+    gap: 30px 20px;
+    padding: 0px 30px;
+  }
+  .stats li {
+    width: calc((100% - 40px) / 3);
+  }
+  .stats li strong {
+    font-size: 48px;
+  }
+  .stats li p {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 1023px) {
+  .stats {
+    gap: 30px 20px;
+  }
+  .stats li {
+    width: calc((100% - 20px) / 2);
+  }
+  .stats li strong {
+    font-size: 48px;
+  }
+  .stats li p {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .stats {
+    padding: 0;
+    gap: 20px;
+  }
+  .stats li {
+    width: 100%;
+  }
+  .stats li strong {
+    font-size: 44px;
+  }
+  .stats li p {
+    font-size: 16px;
+    margin-top: 0px;
+  }
+  .stats li:nth-child(1) strong, .stats li:nth-child(5) strong {
+    color: var(--blue);
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: var(--blue);
+  }
+  .stats li:nth-child(2) strong {
+    background: var(--gradient-vertical-invers);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+  .stats li:nth-child(4) strong {
+    background: var(--gradient-vertical);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+}
 
 .rules {
   margin-top: 40px;
@@ -1708,7 +1799,7 @@ body.locked {
 }
 .rules > li {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 14px;
   padding-left: 74px;
   position: relative;
@@ -1730,19 +1821,65 @@ body.locked {
 }
 .rules > li p {
   font-size: 24px;
-  line-height: 1.2;
+  line-height: 1.4;
+}
+@media (max-width: 1279px) {
+  .rules {
+    margin-top: 30px;
+    padding: 0px 60px 0px 30px;
+  }
+  .rules > li {
+    gap: 14px;
+    padding-left: 64px;
+  }
+  .rules > li:before {
+    width: 50px;
+    height: 25px;
+    top: 4px;
+  }
+  .rules > li p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+@media (max-width: 767px) {
+  .rules {
+    padding: 0px;
+  }
+  .rules > li p br {
+    display: none;
+  }
 }
 
 .online-offline {
   display: flex;
   position: relative;
   width: 100%;
-  flex-wrap: wrap;
   gap: 40px;
   margin-top: 14px;
+  margin-bottom: 14px;
+}
+@media (max-width: 1023px) {
+  .online-offline {
+    gap: 20px 80px;
+    flex-wrap: wrap;
+  }
 }
 .online-offline li {
-  width: calc((100% - 40px) / 2);
+  display: inline-flex;
+  gap: 18px;
+  align-items: center;
+  align-content: center;
+  width: auto;
+}
+@media (max-width: 1023px) {
+  .online-offline li {
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-direction: column;
+  }
 }
 .online-offline li strong {
   display: flex;
@@ -1754,7 +1891,12 @@ body.locked {
   border-radius: 40px;
   width: 186px;
   height: 46px;
-  margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+  .online-offline li strong {
+    width: 140px;
+    height: 36px;
+  }
 }
 .online-offline li strong:before {
   content: "";
@@ -1777,9 +1919,14 @@ body.locked {
   font-family: var(--medium);
   font-size: 32px;
 }
+@media (max-width: 767px) {
+  .online-offline li strong span {
+    font-size: 24px;
+  }
+}
 
 .audience {
-  margin-top: 40px;
+  margin-top: clamp(30px, 2.7778vw, 40px);
   display: flex;
   position: relative;
   width: 100%;
@@ -1792,7 +1939,7 @@ body.locked {
   width: calc((100% - 40px) / 3);
   border-radius: 20px;
   font-family: var(--medium);
-  font-size: 24px;
+  font-size: clamp(20px, 1.6667vw, 24px);
   line-height: 1.2;
   background: url("../img/audience-blue-bg.webp") no-repeat center center/cover;
 }
@@ -1801,6 +1948,22 @@ body.locked {
 }
 .audience li:last-child {
   background: url("../img/audience-viola-bg.webp") no-repeat center center/cover;
+}
+@media (max-width: 1279px) {
+  .audience {
+    padding-left: 30px;
+    padding-right: 60px;
+  }
+}
+@media (max-width: 767px) {
+  .audience {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .audience li {
+    min-height: 90px;
+    width: 100%;
+  }
 }
 
 .section--speakers {
@@ -2002,6 +2165,11 @@ body.locked {
   margin-top: 20px;
   text-align: center;
 }
+@media (max-width: 767px) {
+  .countdown {
+    gap: 30px;
+  }
+}
 .countdown ul {
   display: flex;
   position: relative;
@@ -2012,6 +2180,11 @@ body.locked {
   align-content: center;
   gap: 80px;
   font-family: var(--regular);
+}
+@media (max-width: 1023px) {
+  .countdown ul {
+    gap: 40px;
+  }
 }
 .countdown ul li {
   position: relative;
@@ -2028,6 +2201,18 @@ body.locked {
   top: 28px;
   -webkit-animation: clock-blink 1.2s linear infinite;
           animation: clock-blink 1.2s linear infinite;
+}
+@media (max-width: 1023px) {
+  .countdown ul li:before {
+    left: calc(100% + 18px);
+  }
+}
+@media (max-width: 767px) {
+  .countdown ul li:before {
+    width: 4px;
+    height: 14px;
+    top: 14px;
+  }
 }
 .countdown ul li:last-child:before {
   content: none;
@@ -2046,4 +2231,18 @@ body.locked {
 .countdown ul li p {
   font-size: 18px;
   padding-top: 10px;
+}
+@media (max-width: 767px) {
+  .countdown ul li {
+    font-size: 28px;
+  }
+  .countdown ul li strong {
+    width: 86px;
+    height: 42px;
+    border-radius: 10px;
+  }
+  .countdown ul li p {
+    font-size: 12px;
+    padding-top: 4px;
+  }
 }

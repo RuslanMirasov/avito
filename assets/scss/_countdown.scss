@@ -9,6 +9,9 @@
   gap: 40px;
   margin-top: 20px;
   text-align: center;
+  @media (max-width: 767px) {
+    gap: 30px;
+  }
 
   ul {
     display: flex;
@@ -20,6 +23,9 @@
     align-content: center;
     gap: 80px;
     font-family: var(--regular);
+    @media (max-width: 1023px) {
+      gap: 40px;
+    }
 
     li {
       position: relative;
@@ -34,6 +40,14 @@
         left: calc(100% + 36px);
         top: 28px;
         animation: clock-blink 1.2s linear infinite;
+        @media (max-width: 1023px) {
+          left: calc(100% + 18px);
+        }
+        @media (max-width: 767px) {
+          width: 4px;
+          height: 14px;
+          top: 14px;
+        }
       }
       &:last-child {
         &:before {
@@ -55,6 +69,18 @@
       p {
         font-size: 18px;
         padding-top: 10px;
+      }
+      @media (max-width: 767px) {
+        font-size: 28px;
+        strong {
+          width: 86px;
+          height: 42px;
+          border-radius: 10px;
+        }
+        p {
+          font-size: 12px;
+          padding-top: 4px;
+        }
       }
     }
   }
