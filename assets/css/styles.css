@@ -1944,6 +1944,16 @@ body.locked {
   font-size: clamp(10px, 2.0833vw, 30px);
   line-height: 1;
   color: var(--black);
+  padding-bottom: 2%;
+}
+
+.age-limit {
+  font-family: var(--light);
+  font-size: clamp(32px, 4.7222vw, 68px);
+  color: var(--white);
+  position: absolute;
+  right: 15px;
+  bottom: 0px;
 }
 
 .section--about {

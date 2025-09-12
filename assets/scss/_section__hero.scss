@@ -107,9 +107,16 @@
       font-size: myclamp(10px, 30px, 1440px, 1440px);
       line-height: 1;
       color: var(--black);
+      padding-bottom: 2%;
     }
   }
 }
 
-@media (max-width: 1279px) {
+.age-limit {
+  font-family: var(--light);
+  font-size: myclamp(32px, 68px, 1440px, 1440px);
+  color: var(--white);
+  position: absolute;
+  right: 15px;
+  bottom: 0px;
 }
