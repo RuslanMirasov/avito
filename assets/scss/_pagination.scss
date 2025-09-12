@@ -16,6 +16,15 @@
   gap: 15px;
   transform: translate(0%, -50%) rotate(-90deg);
 
+  li {
+    &:last-child {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
   .button {
     white-space: nowrap;
   }

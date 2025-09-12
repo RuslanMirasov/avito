@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
+  text-align: center;
   gap: 12px;
 }
 
@@ -26,5 +27,5 @@
 
 .subtitle {
   font-size: myclamp(20px, 22px, 1440px, 1440px);
-  line-height: 1.2;
+  line-height: 1.4;
 }

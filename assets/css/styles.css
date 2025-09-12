@@ -120,6 +120,12 @@
     display: none;
   }
 }
+.fixed-pagination li:last-child {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
 .fixed-pagination .button {
   white-space: nowrap;
 }
@@ -328,6 +334,14 @@ a {
 .link {
   text-decoration: underline;
   color: inherit;
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
 .slider-arrows {
@@ -875,6 +889,7 @@ a {
   justify-content: center;
   align-items: center;
   align-content: center;
+  text-align: center;
   gap: 12px;
 }
 
@@ -893,7 +908,72 @@ a {
 
 .subtitle {
   font-size: clamp(20px, 1.5278vw, 22px);
-  line-height: 1.2;
+  line-height: 1.4;
+}
+
+.faq {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 40px;
+}
+
+.accordeon {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+}
+.accordeon.open .question:before {
+  transform: rotate(180deg);
+}
+
+.question {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 80px;
+  padding: 20px 24px;
+  padding-right: 80px;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  background: var(--gradient);
+  color: var(--white);
+  font-size: 24px;
+}
+.question > * {
+  pointer-events: none;
+}
+.question:before {
+  content: "";
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 80px;
+  height: 80px;
+  transform: rotate(0deg);
+  transition: 0.4s;
+  background: url("../img/svg/arrow-down.svg") no-repeat center center;
+}
+
+.answer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0px;
+  transition: 0.4s;
+  background: var(--white);
+}
+
+.answer__content {
+  padding: 24px;
+  font-size: 16px;
+  line-height: 1.625;
 }
 
 :root {
@@ -2441,6 +2521,112 @@ body.locked {
 .map-description p {
   font-size: 20px;
   line-height: 1.2;
+}
+
+.section--timetable {
+  padding: 260px 0px;
+  background: url("../img/timetable-bg.webp") no-repeat center center;
+  background-size: 100% 100%;
+  margin-top: -200px;
+  margin-bottom: -200px;
+}
+.section--timetable .title-box b {
+  font-family: var(--medium);
+  font-style: italic;
+}
+@media (max-width: 767px) {
+  .section--timetable {
+    padding: 230px 0px;
+  }
+  .section--timetable .subtitle br {
+    display: none;
+  }
+  .section--timetable .subtitle b {
+    display: block;
+    width: 100%;
+    padding-top: 10px;
+  }
+}
+
+.section--faq {
+  padding: 60px 0px 80px 0px;
+}
+@media (max-width: 767px) {
+  .section--faq {
+    padding: 30px 0px 40px 0px;
+  }
+}
+
+.faq.faq--program .accordeon {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+}
+.faq.faq--program .question {
+  height: auto;
+  min-height: 80px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-right: 80px;
+  padding-left: 196px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  background: var(--white);
+  color: var(--black);
+}
+.faq.faq--program .question:before {
+  background: url("../img/svg/arrow-down-black.svg") no-repeat center center;
+}
+.faq.faq--program .question span {
+  position: absolute;
+  left: 24px;
+}
+@media (max-width: 767px) {
+  .faq.faq--program .question {
+    padding-left: 24px;
+    flex-wrap: wrap;
+  }
+  .faq.faq--program .question p {
+    font-size: 22px;
+  }
+  .faq.faq--program .question span {
+    position: relative;
+    left: 0px;
+    margin-bottom: 10px;
+  }
+}
+.faq.faq--program .answer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 0px;
+  transition: 0.4s;
+  background: var(--white);
+}
+.faq.faq--program .answer__content {
+  padding: 0px 24px 24px 24px;
+  font-size: 12px;
+  line-height: 1.2;
+  padding-left: 196px;
+}
+@media (max-width: 767px) {
+  .faq.faq--program .answer__content {
+    padding-left: 24px;
+  }
+}
+.faq.faq--program .answer__content h3,
+.faq.faq--program .answer__content h4,
+.faq.faq--program .answer__content h5,
+.faq.faq--program .answer__content h6 {
+  display: block;
+  padding-bottom: 4px;
+  font-size: 22px;
+  font-family: var(--regular);
+}
+.faq.faq--program .answer__content p {
+  opacity: 0.5;
 }
 
 .countdown {

@@ -1,7 +1,7 @@
 export const initAccordeons = () => {
-  const accordeons = document.querySelector('[data-accordeons]');
+  const accordeons = document.querySelectorAll('[data-accordeons]');
 
-  if (!accordeons) return;
+  if (!accordeons.length) return;
 
   const openFirstAccordeon = () => {
     const firstAccordeon = document.querySelector('.accordeon');
@@ -33,6 +33,7 @@ export const initAccordeons = () => {
     accordeonBody.style.height = accordeonBody.scrollHeight + 'px';
   };
 
-  accordeons.addEventListener('click', accordeonToggle);
-  openFirstAccordeon();
+  accordeons.forEach(el => {
+    el.addEventListener('click', accordeonToggle);
+  });
 };
