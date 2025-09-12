@@ -75,7 +75,6 @@
       <li>
         <a href="#broadcast" data-scrollto data-section-pagination></a>
       </li>
-
       <li>
         <button type="button" class="button button--medium" data-popup-open="register"><span>Я в деле</span></button>
       </li>
@@ -619,9 +618,12 @@
               e.preventDefault();
               const form = e.target;
               const isProfi = form.elements['sales_role'].value === 'Профессиональный продавец';
+              const participationFormat = form.elements['participation_format'].value === 'Онлайн';
 
               const profiInputs = document.querySelectorAll('fieldset.profi');
               const singleInputs = document.querySelectorAll('fieldset.single');
+              const successOnline = document.querySelector('.success-online');
+              const successOfline = document.querySelector('.success-ofline');
 
               profiInputs.forEach(fs => {
                 const show = isProfi;
@@ -634,6 +636,9 @@
                 fs.style.display = show ? 'flex' : 'none';
                 fs.disabled = !show;
               });
+
+              successOnline.style.display = participationFormat ? 'flex' : 'none';
+              successOfline.style.display = !participationFormat ? 'flex' : 'none';
 
               window.popup.open('register2');
             }
@@ -1160,14 +1165,23 @@
         <!--REGISTER SUCCESS POPUP-->
         <div class="popup-content" id="register-success">
           <button class="popup-close" data-popup-close></button>
-
           <h2 class="popup-title">Теперь вы в&nbsp;деле!</h2>
-          <p class="popup-subtitle">Заявка успешно отправлена!</p>
-          <p class="popup-subtitle">Благодарим вас за уделенное время и с нетерпением ждем встречи в MТС Live Hall.</p>
-          <p class="popup-subtitle">
-            Нам понадобится время для обработки данных. Ответ пришлем в течение 3 рабочих дней на электронную почту. Будем на связи!
-          </p>
-          <p class="popup-subtitle">Пока ожидаете подтверждение регистрации забирайте стикер-пак и используйте его по делу!</p>
+
+          <div class="success-ofline">
+            <p class="popup-subtitle">Заявка успешно отправлена!</p>
+            <p class="popup-subtitle">Благодарим вас за уделенное время и с нетерпением ждем встречи в MТС Live Hall.</p>
+            <p class="popup-subtitle">
+              Нам понадобится время для обработки данных. Ответ пришлем в течение 3 рабочих дней на электронную почту. Будем на связи!
+            </p>
+            <p class="popup-subtitle">Пока ожидаете подтверждение регистрации забирайте стикер-пак и используйте его по делу!</p>
+          </div>
+
+          <div class="success-online">
+            <p class="popup-subtitle">Благодарим вас за уделенное время! Теперь вы официальный участник конференции в онлайн формате!</p>
+            <p class="popup-subtitle">Ссылка на трансляцию придет 14 октября на указанную электронную почту.</p>
+            <p class="popup-subtitle">Дарим Вам стикер-пак используйте его.</p>
+          </div>
+
           <p class="popup-subtitle"><a href="#" class="link" download>Стикер-пак</a></p>
 
           <img src="./assets/img/svg/ok.svg" alt="Авито" class="popup-image" />

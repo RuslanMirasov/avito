@@ -1798,6 +1798,18 @@ body.locked {
   font-size: 18px;
 }
 
+.success-ofline,
+.success-online {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+}
+
 .section--hero {
   height: 100svh;
   max-height: 950px;

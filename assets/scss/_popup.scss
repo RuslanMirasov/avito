@@ -219,3 +219,15 @@ body.locked {
 #register-success .popup-subtitle .link {
   font-size: 18px;
 }
+
+.success-ofline,
+.success-online {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 24px;
+}
