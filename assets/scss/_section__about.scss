@@ -281,6 +281,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  transform: translate(-24px, 0px);
 
   li {
     padding: 20px 24px;
@@ -307,6 +308,7 @@
   @media (max-width: 767px) {
     padding-left: 0px;
     padding-right: 0px;
+    transform: translate(0px, 0px);
     li {
       min-height: 90px;
       width: 100%;

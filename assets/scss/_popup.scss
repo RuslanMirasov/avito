@@ -198,7 +198,7 @@ body.locked {
   }
   a {
     transition: 0.3s;
-    text-decoration: underline;
+    border-bottom: 1px solid var(--blue);
     @media (hover: hover) {
       &:hover {
         color: var(--blue);
@@ -211,13 +211,18 @@ body.locked {
       -webkit-text-fill-color: transparent;
       background-clip: text;
       color: transparent;
-      text-decoration: underline;
     }
   }
 }
 
 #register-success .popup-subtitle .link {
   font-size: 18px;
+}
+
+#register-success {
+  .popup-image {
+    cursor: pointer;
+  }
 }
 
 .success-ofline,

@@ -1,5 +1,6 @@
 .section--speakers {
   padding: 60px 0px;
+  z-index: 2;
   .swiper-arrow {
     top: 110px;
     margin-top: 0px;
@@ -195,9 +196,18 @@
 @media (max-width: 1023px) {
   .swiper--speakers {
     width: 310px;
+    margin-left: 0px;
+    position: static;
     .swiper-slide {
       opacity: 1;
       transform: scale(1);
     }
+  }
+}
+
+@media (max-width: 414px) {
+  .swiper--speakers {
+    margin-left: auto;
+    position: relative;
   }
 }

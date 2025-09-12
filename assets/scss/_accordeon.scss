@@ -5,6 +5,18 @@
   flex-direction: column;
   gap: 5px;
   margin-top: 40px;
+
+  @media (max-width: 1279px) {
+    width: calc(100% - 100px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .accordeon {

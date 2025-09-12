@@ -112,7 +112,7 @@
 }
 @media (max-width: 1365px) {
   .fixed-pagination {
-    left: calc(100dvw - 170px);
+    left: calc(100dvw - 180px);
   }
 }
 @media (max-width: 767px) {
@@ -918,6 +918,20 @@ a {
   flex-direction: column;
   gap: 5px;
   margin-top: 40px;
+}
+@media (max-width: 1279px) {
+  .faq {
+    width: calc(100% - 100px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media (max-width: 767px) {
+  .faq {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .accordeon {
@@ -1777,7 +1791,7 @@ body.locked {
 }
 .popup-text a {
   transition: 0.3s;
-  text-decoration: underline;
+  border-bottom: 1px solid var(--blue);
 }
 @media (hover: hover) {
   .popup-text a:hover {
@@ -1791,11 +1805,14 @@ body.locked {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  text-decoration: underline;
 }
 
 #register-success .popup-subtitle .link {
   font-size: 18px;
+}
+
+#register-success .popup-image {
+  cursor: pointer;
 }
 
 .success-ofline,
@@ -2204,6 +2221,7 @@ body.locked {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  transform: translate(-24px, 0px);
 }
 .audience li {
   padding: 20px 24px;
@@ -2230,6 +2248,7 @@ body.locked {
   .audience {
     padding-left: 0px;
     padding-right: 0px;
+    transform: translate(0px, 0px);
   }
   .audience li {
     min-height: 90px;
@@ -2239,6 +2258,7 @@ body.locked {
 
 .section--speakers {
   padding: 60px 0px;
+  z-index: 2;
 }
 .section--speakers .swiper-arrow {
   top: 110px;
@@ -2407,10 +2427,18 @@ body.locked {
 @media (max-width: 1023px) {
   .swiper--speakers {
     width: 310px;
+    margin-left: 0px;
+    position: static;
   }
   .swiper--speakers .swiper-slide {
     opacity: 1;
     transform: scale(1);
+  }
+}
+@media (max-width: 414px) {
+  .swiper--speakers {
+    margin-left: auto;
+    position: relative;
   }
 }
 .section--chatbot {
@@ -2541,6 +2569,7 @@ body.locked {
   background-size: 100% 100%;
   margin-top: -200px;
   margin-bottom: -200px;
+  z-index: 1;
 }
 .section--timetable .title-box b {
   font-family: var(--medium);

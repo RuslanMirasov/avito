@@ -31,7 +31,7 @@
           <ul class="menu">
             <li><a href="#about" class="menu__link" data-scrollto>О конференции</a></li>
             <li><a href="#speakers" class="menu__link" data-scrollto>Спикеры</a></li>
-            <li><a href="#timetable" class="menu__link" data-scrollto>Расписание</a></li>
+            <li><a href="#timetable" class="menu__link" data-scrollto="150">Расписание</a></li>
             <li><a href="#broadcast" class="menu__link" data-scrollto>Трансляция</a></li>
             <li><a href="#maps" class="menu__link" data-scrollto>Местоположение</a></li>
             <li><a href="#faq" class="menu__link" data-scrollto>FAQ</a></li>
@@ -51,9 +51,9 @@
             </a>
           </li>
           <li>
-            <a href="#" class="button button--small" target="_blank">
+            <button type="button" class="button button--small" data-popup-open="register">
               <img src="./assets/img/svg/reddit.svg" alt="Авито" />
-            </a>
+            </button>
           </li>
         </ul>
 
@@ -79,7 +79,7 @@
         <button type="button" class="button button--medium" data-popup-open="register"><span>Я в деле</span></button>
       </li>
       <li>
-        <a href="#timetable" data-scrollto data-section-pagination></a>
+        <a href="#timetable" data-scrollto="150" data-section-pagination></a>
       </li>
       <li>
         <a href="#speakers" data-scrollto data-section-pagination></a>
@@ -477,7 +477,7 @@
       <section class="section section--chatbot">
         <div class="container">
           <div class="title-box">
-            <h2 class="title title--h2">Чат-бот</h2>
+            <h2 class="title title--h2">Телеграм-бот</h2>
             <p class="subtitle">Сканируйте QR-код, чтобы не пропустить важное! <br />Пишем только по делу.</p>
           </div>
 
@@ -1065,7 +1065,7 @@
                 <p class="label__text">Боюсь сложностей в&nbsp;общении с&nbsp;покупателями</p>
               </label>
               <label class="label">
-                <input type="radio" name="no_avito_reason" class="radio" value="Скептически отношусь к онлайн-продажам " required />
+                <input type="radio" name="no_avito_reason" class="radio" value="Скептически отношусь к онлайн-продажам" required />
                 <p class="label__text">Скептически отношусь к&nbsp;онлайн-продажам</p>
               </label>
               <label class="label">
@@ -1184,7 +1184,7 @@
 
           <p class="popup-subtitle"><a href="#" class="link" download>Стикер-пак</a></p>
 
-          <img src="./assets/img/svg/ok.svg" alt="Авито" class="popup-image" />
+          <img src="./assets/img/svg/ok.svg" alt="Авито" class="popup-image" data-popup-close />
         </div>
 
         <!--CALLBACK SUCCESS POPUP-->
