@@ -1,9 +1,9 @@
 .fixed-pagination {
   display: inline-flex;
   position: fixed;
-  left: calc(100dvw - 195px);
+  left: calc(100dvw - 220px);
   @media (max-width: 1365px) {
-    left: calc(100dvw - 180px);
+    left: calc(100dvw - 207px);
   }
   @media (max-width: 767px) {
     display: none;
@@ -27,6 +27,7 @@
 
   .button {
     white-space: nowrap;
+    width: 160px;
   }
 
   &.dark {

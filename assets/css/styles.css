@@ -101,7 +101,7 @@
 .fixed-pagination {
   display: inline-flex;
   position: fixed;
-  left: calc(100dvw - 195px);
+  left: calc(100dvw - 220px);
   top: 50%;
   z-index: 30;
   justify-content: center;
@@ -112,7 +112,7 @@
 }
 @media (max-width: 1365px) {
   .fixed-pagination {
-    left: calc(100dvw - 180px);
+    left: calc(100dvw - 207px);
   }
 }
 @media (max-width: 767px) {
@@ -128,6 +128,7 @@
 }
 .fixed-pagination .button {
   white-space: nowrap;
+  width: 160px;
 }
 .fixed-pagination.dark .button {
   background: rgba(64, 70, 77, 0.4);
@@ -943,6 +944,9 @@ a {
 .accordeon.open .question:before {
   transform: rotate(180deg);
 }
+.accordeon.open .question.question--empty:before {
+  content: none;
+}
 
 .question {
   display: flex;
@@ -973,6 +977,9 @@ a {
   transform: rotate(0deg);
   transition: 0.4s;
   background: url("../img/svg/arrow-down.svg") no-repeat center center;
+}
+.question.question--empty:before {
+  content: none;
 }
 
 .answer {
@@ -1868,7 +1875,7 @@ body.locked {
   width: clamp(110px, 13.6111vw, 196px);
 }
 .hero-logo h1 {
-  font-family: var(--light);
+  font-family: var(--medium);
   font-size: clamp(12px, 1.5278vw, 22px);
   line-height: 1;
   color: var(--black);
@@ -2639,6 +2646,7 @@ body.locked {
   }
   .faq.faq--program .question p {
     font-size: 22px;
+    width: 100%;
   }
   .faq.faq--program .question span {
     position: relative;

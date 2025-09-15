@@ -4,7 +4,7 @@ export const initSectionPaginationWatcher = ({
   linkSelector = '[data-section-pagination]',
   wrapperSelector = '.fixed-pagination',
   activeClass = 'active',
-  darkClass = 'dark',
+  darkClass = 'not-dark',
   throttleMs = 120,
   offset = 50,
 } = {}) => {

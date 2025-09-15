@@ -29,6 +29,11 @@
       &:before {
         transform: rotate(180deg);
       }
+      &.question--empty {
+        &:before {
+          content: none;
+        }
+      }
     }
   }
 }
@@ -62,6 +67,12 @@
     transform: rotate(0deg);
     transition: 0.4s;
     background: url('../img/svg/arrow-down.svg') no-repeat center center;
+  }
+
+  &.question--empty {
+    &:before {
+      content: none;
+    }
   }
 }
 

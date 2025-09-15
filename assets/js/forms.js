@@ -39,8 +39,18 @@ const validationRegEx = [
   },
   {
     name: 'name',
-    regex: /^[a-zA-Zа-яА-ЯёЁіІїЇєЄґҐ\s\-]+$/,
-    error: 'Цифры и спец. символы запрещены!',
+    regex: /^[\p{Script=Cyrillic}\s-]+$/u,
+    error: 'Разрешены только буквы кириллицы!',
+  },
+  {
+    name: 'sername',
+    regex: /^[\p{Script=Cyrillic}\s-]+$/u,
+    error: 'Разрешены только буквы кириллицы!',
+  },
+  {
+    name: 'company_inn',
+    regex: /^\d{10}$|^\d{12}$/,
+    error: 'ИНН должен содержать 10 или 12 цифр!',
   },
 ];
 
@@ -63,6 +73,78 @@ const validateRadioGroup = input => {
   });
 
   return isValid;
+};
+
+// Функция для ограничения выбора максимум 3 категорий
+const limitCategorySelection = checkbox => {
+  const form = checkbox.form || document;
+  const categoryCheckboxes = form.querySelectorAll('input[name="product_category"][type="checkbox"]');
+  const categoryTextInput = form.querySelector('input[name="product_category"][type="text"]');
+  const checkedBoxes = form.querySelectorAll('input[name="product_category"][type="checkbox"]:checked');
+
+  // Если выбрано больше 3, отключаем остальные checkbox и текстовое поле
+  if (checkedBoxes.length >= 3) {
+    categoryCheckboxes.forEach(cb => {
+      if (!cb.checked) {
+        cb.disabled = true;
+        cb.closest('.label').classList.add('disabled');
+      }
+    });
+
+    // Блокируем текстовое поле "Другое"
+    if (categoryTextInput) {
+      categoryTextInput.disabled = true;
+      categoryTextInput.closest('.label').classList.add('disabled');
+    }
+  } else {
+    // Если меньше 3, включаем все checkbox и текстовое поле
+    categoryCheckboxes.forEach(cb => {
+      cb.disabled = false;
+      cb.closest('.label').classList.remove('disabled');
+    });
+
+    // Разблокируем текстовое поле "Другое"
+    if (categoryTextInput) {
+      categoryTextInput.disabled = false;
+      categoryTextInput.closest('.label').classList.remove('disabled');
+    }
+  }
+};
+
+// Функция для ограничения выбора максимум 3 причин отказа от Авито
+const limitNoAvitoReasonSelection = checkbox => {
+  const form = checkbox.form || document;
+  const reasonCheckboxes = form.querySelectorAll('input[name="no_avito_reason"][type="checkbox"]');
+  const reasonTextInput = form.querySelector('input[name="no_avito_reason"][type="text"]');
+  const checkedBoxes = form.querySelectorAll('input[name="no_avito_reason"][type="checkbox"]:checked');
+
+  // Если выбрано больше 3, отключаем остальные checkbox и текстовое поле
+  if (checkedBoxes.length >= 3) {
+    reasonCheckboxes.forEach(cb => {
+      if (!cb.checked) {
+        cb.disabled = true;
+        cb.closest('.label').classList.add('disabled');
+      }
+    });
+
+    // Блокируем текстовое поле "Другое"
+    if (reasonTextInput) {
+      reasonTextInput.disabled = true;
+      reasonTextInput.closest('.label').classList.add('disabled');
+    }
+  } else {
+    // Если меньше 3, включаем все checkbox и текстовое поле
+    reasonCheckboxes.forEach(cb => {
+      cb.disabled = false;
+      cb.closest('.label').classList.remove('disabled');
+    });
+
+    // Разблокируем текстовое поле "Другое"
+    if (reasonTextInput) {
+      reasonTextInput.disabled = false;
+      reasonTextInput.closest('.label').classList.remove('disabled');
+    }
+  }
 };
 
 const validateInput = input => {
@@ -106,6 +188,11 @@ const validateInput = input => {
 
   if (!value || value === '') {
     return validationError('Это обязательное поле!');
+  }
+
+  // Специальная валидация для полей имени и фамилии - проверка минимальной длины
+  if ((name === 'name' || name === 'LastName') && value.trim().length < 2) {
+    return validationError('Минимум 2 символа!');
   }
 
   const typeValidation = validationRegEx.find(v => v.type === type);
@@ -226,6 +313,54 @@ document.addEventListener('blur', e => {
 document.addEventListener('input', e => {
   if (e.target.type === 'text' && e.target.classList.contains('input--checkable')) {
     validateRadioGroup(e.target);
+
+    // Если это текстовое поле категорий, проверяем лимит
+    if (e.target.name === 'product_category') {
+      const form = e.target.form || document;
+      const categoryCheckboxes = form.querySelectorAll('input[name="product_category"][type="checkbox"]');
+      const checkedBoxes = form.querySelectorAll('input[name="product_category"][type="checkbox"]:checked');
+      const hasText = e.target.value.trim() !== '';
+
+      // Если есть текст И выбрано 3 checkbox, блокируем checkbox
+      if (hasText && checkedBoxes.length >= 3) {
+        categoryCheckboxes.forEach(cb => {
+          if (!cb.checked) {
+            cb.disabled = true;
+            cb.closest('.label').classList.add('disabled');
+          }
+        });
+      } else if (!hasText) {
+        // Если текста нет, разблокируем checkbox
+        categoryCheckboxes.forEach(cb => {
+          cb.disabled = false;
+          cb.closest('.label').classList.remove('disabled');
+        });
+      }
+    }
+
+    // Если это текстовое поле причин отказа от Авито, проверяем лимит
+    if (e.target.name === 'no_avito_reason') {
+      const form = e.target.form || document;
+      const reasonCheckboxes = form.querySelectorAll('input[name="no_avito_reason"][type="checkbox"]');
+      const checkedBoxes = form.querySelectorAll('input[name="no_avito_reason"][type="checkbox"]:checked');
+      const hasText = e.target.value.trim() !== '';
+
+      // Если есть текст И выбрано 3 checkbox, блокируем checkbox
+      if (hasText && checkedBoxes.length >= 3) {
+        reasonCheckboxes.forEach(cb => {
+          if (!cb.checked) {
+            cb.disabled = true;
+            cb.closest('.label').classList.add('disabled');
+          }
+        });
+      } else if (!hasText) {
+        // Если текста нет, разблокируем checkbox
+        reasonCheckboxes.forEach(cb => {
+          cb.disabled = false;
+          cb.closest('.label').classList.remove('disabled');
+        });
+      }
+    }
   }
 });
 
@@ -243,7 +378,7 @@ document.addEventListener('change', e => {
   if (e.target.type === 'checkbox') {
     if (e.target.name === 'skip_question') {
       const isChecked = e.target.checked;
-      const avitoId = document.querySelector('.avitoId');
+      const avitoId = document.querySelector('[name="avito_id"]');
       if (isChecked && avitoId) {
         avitoId.removeAttribute('required');
         avitoId.classList.remove('invalid');
@@ -252,6 +387,16 @@ document.addEventListener('change', e => {
         avitoId.disabled = false;
         avitoId.setAttribute('required', '');
       }
+    }
+
+    // Ограничиваем выбор категорий максимум 3 вариантами
+    if (e.target.name === 'product_category') {
+      limitCategorySelection(e.target);
+    }
+
+    // Ограничиваем выбор причин отказа от Авито максимум 3 вариантами
+    if (e.target.name === 'no_avito_reason') {
+      limitNoAvitoReasonSelection(e.target);
     }
 
     validateRadioGroup(e.target);
@@ -264,6 +409,54 @@ document.addEventListener(
     if (e.target.nodeName === 'SELECT') {
       e.target.classList.remove('open');
       setSelectPlaceholderClass(e.target);
+    }
+
+    // Если это текстовое поле категорий, проверяем лимит при потере фокуса
+    if (e.target.type === 'text' && e.target.name === 'product_category' && e.target.classList.contains('input--checkable')) {
+      const form = e.target.form || document;
+      const categoryCheckboxes = form.querySelectorAll('input[name="product_category"][type="checkbox"]');
+      const checkedBoxes = form.querySelectorAll('input[name="product_category"][type="checkbox"]:checked');
+      const hasText = e.target.value.trim() !== '';
+
+      // Если есть текст И выбрано 3 checkbox, блокируем checkbox
+      if (hasText && checkedBoxes.length >= 3) {
+        categoryCheckboxes.forEach(cb => {
+          if (!cb.checked) {
+            cb.disabled = true;
+            cb.closest('.label').classList.add('disabled');
+          }
+        });
+      } else if (!hasText) {
+        // Если текста нет, разблокируем checkbox
+        categoryCheckboxes.forEach(cb => {
+          cb.disabled = false;
+          cb.closest('.label').classList.remove('disabled');
+        });
+      }
+    }
+
+    // Если это текстовое поле причин отказа от Авито, проверяем лимит при потере фокуса
+    if (e.target.type === 'text' && e.target.name === 'no_avito_reason' && e.target.classList.contains('input--checkable')) {
+      const form = e.target.form || document;
+      const reasonCheckboxes = form.querySelectorAll('input[name="no_avito_reason"][type="checkbox"]');
+      const checkedBoxes = form.querySelectorAll('input[name="no_avito_reason"][type="checkbox"]:checked');
+      const hasText = e.target.value.trim() !== '';
+
+      // Если есть текст И выбрано 3 checkbox, блокируем checkbox
+      if (hasText && checkedBoxes.length >= 3) {
+        reasonCheckboxes.forEach(cb => {
+          if (!cb.checked) {
+            cb.disabled = true;
+            cb.closest('.label').classList.add('disabled');
+          }
+        });
+      } else if (!hasText) {
+        // Если текста нет, разблокируем checkbox
+        reasonCheckboxes.forEach(cb => {
+          cb.disabled = false;
+          cb.closest('.label').classList.remove('disabled');
+        });
+      }
     }
   },
   true
