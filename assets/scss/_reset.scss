@@ -24,7 +24,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  overscroll-behavior: none;
+  overscroll-behavior: auto;
   -webkit-overflow-scrolling: auto;
   position: relative;
   width: 100%;
