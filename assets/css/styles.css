@@ -245,8 +245,8 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  -ms-scroll-chaining: chained;
+      overscroll-behavior: auto;
   -webkit-overflow-scrolling: auto;
   position: relative;
   width: 100%;
