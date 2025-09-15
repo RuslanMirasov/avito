@@ -21,7 +21,6 @@ body.locked {
   z-index: 1000;
   overflow-x: hidden;
   overflow-y: scroll;
-  overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
   padding: 20px 15px;
   backdrop-filter: blur(5px);

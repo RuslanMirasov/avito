@@ -262,8 +262,8 @@ body {
 
 html,
 body {
-  -ms-scroll-chaining: none;
-      overscroll-behavior: none;
+  -ms-scroll-chaining: chained;
+      overscroll-behavior: auto;
 }
 
 img {
@@ -1600,8 +1600,6 @@ body.locked {
   z-index: 1000;
   overflow-x: hidden;
   overflow-y: scroll;
-  -ms-scroll-chaining: none;
-      overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
   padding: 20px 15px;
   -webkit-backdrop-filter: blur(5px);
