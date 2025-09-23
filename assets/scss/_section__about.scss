@@ -39,13 +39,15 @@
     width: calc((100% - 80px) / 3);
 
     strong {
-      font-family: var(--medium);
+      font-family: var(--font);
+      font-weight: 550;
       font-size: 58px;
       color: var(--blue);
     }
 
     p {
-      font-family: var(--regular);
+      font-family: var(--font);
+      font-weight: 400;
       font-size: 22px;
       margin-top: 20px;
     }
@@ -263,7 +265,8 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         color: transparent;
-        font-family: var(--medium);
+        font-family: var(--font);
+        font-weight: 550;
         font-size: 32px;
         @media (max-width: 767px) {
           font-size: 24px;
@@ -287,7 +290,8 @@
     padding: 20px 24px;
     width: calc((100% - 40px) / 3);
     border-radius: 20px;
-    font-family: var(--medium);
+    font-family: var(--font);
+    font-weight: 550;
     font-size: myclamp(20px, 24px, 1440px, 1440px);
     line-height: 1.2;
     background: url('../img/audience-blue-bg.webp') no-repeat center center/cover;

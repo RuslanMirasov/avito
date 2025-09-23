@@ -1,9 +1,6 @@
 @charset "UTF-8";
 :root {
-  --light: "aeroport-light", sans-serif;
-  --regular: "aeroport-regular", sans-serif;
-  --medium: "aeroport-medium", sans-serif;
-  --bold: "aeroport-bold", sans-serif;
+  --font: "Aeroport", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --bg: #f5f5f5;
   --color: #40464d;
   --white: #ffffff;
@@ -19,28 +16,28 @@
 }
 
 @font-face {
-  font-family: "aeroport-light";
+  font-family: "Aeroport";
   src: url("../fonts/aeroport-light.woff2") format("woff2"), url("../fonts/aeroport-light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "aeroport-regular";
+  font-family: "Aeroport";
   src: url("../fonts/aeroport-regular.woff2") format("woff2"), url("../fonts/aeroport-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "aeroport-medium";
-  src: url("../fonts/aeroport-medium.woff2") format("woff2"), url("../fonts/aeroport-medium.woff") format("woff");
+  font-family: "Aeroport";
+  src: url("../fonts/aeroport-medium.woff2?v=2") format("woff2"), url("../fonts/aeroport-medium.woff?v=2") format("woff");
   font-weight: 550;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "aeroport-bold";
+  font-family: "Aeroport";
   src: url("../fonts/aeroport-bold.woff2") format("woff2"), url("../fonts/aeroport-bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
@@ -256,7 +253,8 @@ body {
   color: var(--color);
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: var(--regular);
+  font-family: var(--font);
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
 }
@@ -285,7 +283,8 @@ h5,
 h6,
 b,
 strong {
-  font-family: var(--bold);
+  font-family: var(--font);
+  font-weight: 700;
   color: inherit;
 }
 
@@ -525,7 +524,8 @@ a {
   }
 }
 .menu li .menu__link {
-  font-family: var(--medium);
+  font-family: var(--font);
+  font-weight: 550;
   color: var(--black);
   font-size: 16px;
   line-height: 1;
@@ -573,15 +573,37 @@ a {
   padding: 0;
 }
 .socials li {
+  position: relative;
   width: 34px;
   height: 34px;
   border-radius: 34px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0);
   transition: 0.2s;
 }
+.socials li .socials__info {
+  display: inline-block;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0px;
+  width: auto;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 16px 22px;
+  transform: translate(0px, -10px);
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+.socials li .socials__info p {
+  font-size: 16px;
+}
 @media (hover: hover) {
   .socials li:hover {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .socials li:hover .socials__info {
+    transform: translate(0px, 0px);
+    opacity: 1;
   }
 }
 
@@ -866,7 +888,7 @@ a {
 .button span {
   position: relative;
   z-index: 3;
-  font-family: var(--regular);
+  font-family: var(--font);
   font-size: clamp(16px, 1.6667vw, 24px);
   font-weight: 400;
   line-height: 1;
@@ -998,7 +1020,7 @@ a {
 }
 
 :root {
-  --input-font-family: var(--regular);
+  --input-font-family: var(--font);
   --input-font-size: 18px;
   --input-height: 64px;
   --input-background: inherit;
@@ -1090,10 +1112,10 @@ span.input-icon {
   border: 3px solid var(--input-border);
   border-radius: var(--input-border-radius);
   font-family: var(--input-font-family);
+  font-weight: 400;
   font-size: var(--input-font-size);
   color: var(--input-color);
   padding: 0px var(--input-padding);
-  font-weight: 400;
   outline: none;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -1127,6 +1149,7 @@ span.input-icon {
   transition: 0.3s;
   color: var(--input-placeholder-color);
   font-family: var(--input-font-family);
+  font-weight: 400;
   font-size: var(--input-font-size);
 }
 .input:-ms-input-placeholder {
@@ -1135,6 +1158,7 @@ span.input-icon {
   transition: 0.3s;
   color: var(--input-placeholder-color);
   font-family: var(--input-font-family);
+  font-weight: 400;
   font-size: var(--input-font-size);
 }
 .input::placeholder {
@@ -1142,6 +1166,7 @@ span.input-icon {
   transition: 0.3s;
   color: var(--input-placeholder-color);
   font-family: var(--input-font-family);
+  font-weight: 400;
   font-size: var(--input-font-size);
 }
 .input.invalid {
@@ -1249,10 +1274,46 @@ textarea {
   display: block;
   position: absolute;
   right: calc(100% + 15px);
-  top: -3px;
-  width: 56px;
-  height: 56px;
-  border-radius: 56px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 3px solid #f0f0f0;
+  background: var(--white);
+}
+.radio + .label__text.standart,
+.checkbox + .label__text.standart {
+  display: inline-block;
+  border: none;
+}
+.radio + .label__text.standart a,
+.checkbox + .label__text.standart a {
+  display: inline;
+  border-bottom: 1px solid var(--blue);
+  transition: 0.15s;
+}
+.radio + .label__text.standart a:hover,
+.checkbox + .label__text.standart a:hover {
+  color: var(--blue);
+}
+.radio + .label__text.standart a:active,
+.checkbox + .label__text.standart a:active {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  background-clip: text;
+  color: rgba(0, 0, 0, 0);
+}
+.radio + .label__text.standart:before,
+.checkbox + .label__text.standart:before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: calc(100% + 15px);
+  top: 0px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
   border: 3px solid #f0f0f0;
   background: var(--white);
 }
@@ -1261,12 +1322,27 @@ textarea {
   background: var(--gradient);
   border: 3px solid var(--white);
 }
+.radio:checked + p.standart:before,
+.checkbox:checked + p.standart:before {
+  border: 3px solid var(--blue);
+  background: var(--blue) url("../img/svg/checkbox.svg") no-repeat center center;
+  background-size: 80% 80%;
+}
 .radio.invalid + p,
 .checkbox.invalid + p {
   color: var(--invalid);
 }
+.radio.invalid + p a,
+.checkbox.invalid + p a {
+  color: var(--invalid);
+  border-bottom: 1px solid var(--invalid);
+}
 .radio.invalid + p:before,
 .checkbox.invalid + p:before {
+  border: 3px solid var(--invalid);
+}
+.radio.invalid + p.standart:before,
+.checkbox.invalid + p.standart:before {
   border: 3px solid var(--invalid);
 }
 .radio.invalid:checked + p,
@@ -1284,6 +1360,7 @@ textarea {
   -webkit-text-fill-color: var(--input-color) !important;
   font-size: var(--input-font-size) !important;
   font-family: var(--input-font-family) !important;
+  font-weight: 400;
   -webkit-transition: background-color 9999s ease-in-out 0s;
   transition: background-color 9999s ease-in-out 0s;
 }
@@ -1393,10 +1470,20 @@ select.open + .input-icon {
   .radio + .label__text:before,
 .checkbox + .label__text:before {
     right: calc(100% + 10px);
-    top: -2px;
-    width: 50px;
-    height: 50px;
+    top: 3px;
+    width: 40px;
+    height: 40px;
     border: 2px solid #f0f0f0;
+  }
+  .radio + .label__text.standart,
+.checkbox + .label__text.standart {
+    float: right;
+    text-align: left;
+  }
+  .radio + .label__text.standart:before,
+.checkbox + .label__text.standart:before {
+    width: 24px;
+    height: 24px;
   }
   .radio:checked + p:before,
 .checkbox:checked + p:before {
@@ -1416,9 +1503,12 @@ select.open + .input-icon {
 }
 #register .button,
 #register2 .button,
-#register3 .button,
 #register4 .button {
   margin-top: 30px;
+}
+
+#register3 .button {
+  margin-top: 10px;
 }
 
 .footer {
@@ -1749,7 +1839,8 @@ body.locked {
 }
 
 .popup-title {
-  font-family: var(--bold);
+  font-family: var(--font);
+  font-weight: 700;
   font-size: 34px;
   line-height: 1.2;
 }
@@ -1765,6 +1856,14 @@ body.locked {
   line-height: 1.2;
   max-width: 660px;
 }
+.popup-subtitle .dop-text {
+  display: block;
+  width: 100%;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  line-height: 1;
+  font-size: 18px;
+}
 .popup-subtitle .link {
   display: inline-block;
   opacity: 0.5;
@@ -1778,6 +1877,9 @@ body.locked {
 @media (max-width: 1023px) {
   .popup-subtitle {
     font-size: 18px;
+  }
+  .popup-subtitle .dop-text {
+    font-size: 12px;
   }
   .popup-subtitle .link {
     font-size: 12px;
@@ -1832,6 +1934,30 @@ body.locked {
   gap: 24px;
 }
 
+.popup-separator {
+  width: 60px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .input[type=text][name=avito_id],
+.input[type=text][name=company_role],
+.input[type=text][name=no_avito_reason],
+.input[type=text][name=company_name],
+.input[type=text][name=company_inn],
+.input[type=text][name=product_category] {
+    width: calc(100% - 50px);
+    float: right;
+  }
+  .input[type=text][name=avito_id] + .inputError,
+.input[type=text][name=company_role] + .inputError,
+.input[type=text][name=no_avito_reason] + .inputError,
+.input[type=text][name=company_name] + .inputError,
+.input[type=text][name=company_inn] + .inputError,
+.input[type=text][name=product_category] + .inputError {
+    padding-left: 50px;
+  }
+}
 .section--hero {
   height: 100svh;
   max-height: 950px;
@@ -1875,19 +2001,15 @@ body.locked {
   width: clamp(110px, 13.6111vw, 196px);
 }
 .hero-logo h1 {
-  font-family: var(--medium);
+  font-family: var(--font);
+  font-weight: 550;
   font-size: clamp(12px, 1.5278vw, 22px);
   line-height: 1;
   color: var(--black);
 }
 @media (max-width: 767px) {
-  .hero-logo h1 {
-    font-family: var(--medium);
-  }
-}
-@media (max-width: 767px) {
   .hero-logo {
-    transform: translate(0px, -114px);
+    transform: translate(0px, -100px);
   }
 }
 @media (max-height: 620px) {
@@ -1944,8 +2066,8 @@ body.locked {
   border-top: 2px solid var(--white);
 }
 .hero-list li span {
-  font-family: var(--medium);
-  font-weight: 500;
+  font-family: var(--font);
+  font-weight: 550;
   font-size: clamp(10px, 2.0833vw, 30px);
   line-height: 1;
   color: var(--black);
@@ -1953,7 +2075,8 @@ body.locked {
 }
 
 .age-limit {
-  font-family: var(--light);
+  font-family: var(--font);
+  font-weight: 300;
   font-size: clamp(32px, 4.7222vw, 68px);
   color: var(--white);
   position: absolute;
@@ -2005,12 +2128,14 @@ body.locked {
   width: calc((100% - 80px) / 3);
 }
 .stats li strong {
-  font-family: var(--medium);
+  font-family: var(--font);
+  font-weight: 550;
   font-size: 58px;
   color: var(--blue);
 }
 .stats li p {
-  font-family: var(--regular);
+  font-family: var(--font);
+  font-weight: 400;
   font-size: 22px;
   margin-top: 20px;
 }
@@ -2219,7 +2344,8 @@ body.locked {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  font-family: var(--medium);
+  font-family: var(--font);
+  font-weight: 550;
   font-size: 32px;
 }
 @media (max-width: 767px) {
@@ -2242,7 +2368,8 @@ body.locked {
   padding: 20px 24px;
   width: calc((100% - 40px) / 3);
   border-radius: 20px;
-  font-family: var(--medium);
+  font-family: var(--font);
+  font-weight: 550;
   font-size: clamp(20px, 1.6667vw, 24px);
   line-height: 1.2;
   background: url("../img/audience-blue-bg.webp") no-repeat center center/cover;
@@ -2407,7 +2534,8 @@ body.locked {
 .speaker__description h5,
 .speaker__description h6 {
   display: block;
-  font-family: var(--regular);
+  font-family: var(--font);
+  font-weight: 400;
   font-size: 22px;
   margin-bottom: 8px;
 }
@@ -2587,8 +2715,8 @@ body.locked {
   z-index: 1;
 }
 .section--timetable .title-box b {
-  font-family: var(--medium);
-  font-style: italic;
+  font-family: var(--font);
+  font-weight: 550;
 }
 @media (max-width: 767px) {
   .section--timetable {
@@ -2680,7 +2808,8 @@ body.locked {
   display: block;
   padding-bottom: 4px;
   font-size: 22px;
-  font-family: var(--regular);
+  font-family: var(--font);
+  font-weight: 400;
 }
 .faq.faq--program .answer__content p {
   opacity: 0.5;
@@ -2712,7 +2841,8 @@ body.locked {
   align-items: center;
   align-content: center;
   gap: 80px;
-  font-family: var(--regular);
+  font-family: var(--font);
+  font-weight: 400;
 }
 @media (max-width: 1023px) {
   .countdown ul {
@@ -2722,7 +2852,8 @@ body.locked {
 .countdown ul li {
   position: relative;
   font-size: 58px;
-  font-family: var(--medium);
+  font-family: var(--font);
+  font-weight: 550;
 }
 .countdown ul li:before {
   content: "";

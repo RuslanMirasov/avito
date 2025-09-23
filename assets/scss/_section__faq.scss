@@ -6,8 +6,8 @@
   margin-bottom: -200px;
   z-index: 1;
   .title-box b {
-    font-family: var(--medium);
-    font-style: italic;
+    font-family: var(--font);
+    font-weight: 550;
   }
   @media (max-width: 767px) {
     padding: 230px 0px;
@@ -100,7 +100,8 @@
       display: block;
       padding-bottom: 4px;
       font-size: 22px;
-      font-family: var(--regular);
+      font-family: var(--font);
+      font-weight: 400;
     }
     p {
       opacity: 0.5;

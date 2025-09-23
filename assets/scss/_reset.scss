@@ -33,7 +33,8 @@ body {
   color: var(--color);
   overflow-x: hidden;
   overflow-y: auto;
-  font-family: var(--regular);
+  font-family: var(--font);
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.2;
 }
@@ -57,7 +58,8 @@ h5,
 h6,
 b,
 strong {
-  font-family: var(--bold);
+  font-family: var(--font);
+  font-weight: 700;
   color: inherit;
 }
 

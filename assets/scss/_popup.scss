@@ -157,7 +157,8 @@ body.locked {
 }
 
 .popup-title {
-  font-family: var(--bold);
+  font-family: var(--font);
+  font-weight: 700;
   font-size: 34px;
   line-height: 1.2;
   @media (max-width: 1023px) {
@@ -170,6 +171,14 @@ body.locked {
   font-size: 24px;
   line-height: 1.2;
   max-width: 660px;
+  .dop-text {
+    display: block;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    line-height: 1;
+    font-size: 18px;
+  }
   .link {
     display: inline-block;
     opacity: 0.5;
@@ -182,6 +191,9 @@ body.locked {
   }
   @media (max-width: 1023px) {
     font-size: 18px;
+    .dop-text {
+      font-size: 12px;
+    }
     .link {
       font-size: 12px;
       margin-top: 2px;
@@ -234,4 +246,25 @@ body.locked {
   align-items: center;
   align-content: center;
   gap: 24px;
+}
+
+.popup-separator {
+  width: 60px;
+  margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+  .input[type='text'][name='avito_id'],
+  .input[type='text'][name='company_role'],
+  .input[type='text'][name='no_avito_reason'],
+  .input[type='text'][name='company_name'],
+  .input[type='text'][name='company_inn'],
+  .input[type='text'][name='product_category'] {
+    width: calc(100% - 50px);
+    float: right;
+
+    + .inputError {
+      padding-left: 50px;
+    }
+  }
 }

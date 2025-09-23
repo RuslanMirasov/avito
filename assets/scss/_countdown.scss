@@ -22,7 +22,8 @@
     align-items: center;
     align-content: center;
     gap: 80px;
-    font-family: var(--regular);
+    font-family: var(--font);
+    font-weight: 400;
     @media (max-width: 1023px) {
       gap: 40px;
     }
@@ -30,7 +31,8 @@
     li {
       position: relative;
       font-size: 58px;
-      font-family: var(--medium);
+      font-family: var(--font);
+      font-weight: 550;
       &:before {
         content: '';
         width: 8px;

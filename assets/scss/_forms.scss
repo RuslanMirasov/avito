@@ -1,5 +1,5 @@
 :root {
-  --input-font-family: var(--regular);
+  --input-font-family: var(--font);
   --input-font-size: 18px;
   --input-height: 64px;
   --input-background: inherit;
@@ -95,10 +95,10 @@ span.input-icon {
   border: 3px solid var(--input-border);
   border-radius: var(--input-border-radius);
   font-family: var(--input-font-family);
+  font-weight: 400;
   font-size: var(--input-font-size);
   color: var(--input-color);
   padding: 0px var(--input-padding);
-  font-weight: 400;
   outline: none;
   appearance: none;
   transition: 0.3s;
@@ -127,6 +127,7 @@ span.input-icon {
     transition: 0.3s;
     color: var(--input-placeholder-color);
     font-family: var(--input-font-family);
+    font-weight: 400;
     font-size: var(--input-font-size);
   }
 
@@ -230,12 +231,44 @@ textarea {
       display: block;
       position: absolute;
       right: calc(100% + 15px);
-      top: -3px;
-      width: 56px;
-      height: 56px;
-      border-radius: 56px;
+      top: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
       border: 3px solid #f0f0f0;
       background: var(--white);
+    }
+
+    &.standart {
+      display: inline-block;
+      border: none;
+      a {
+        display: inline;
+        border-bottom: 1px solid var(--blue);
+        transition: 0.15s;
+        &:hover {
+          color: var(--blue);
+        }
+        &:active {
+          background: var(--gradient);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: rgba(0, 0, 0, 0);
+          background-clip: text;
+          color: rgba(0, 0, 0, 0);
+        }
+      }
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: calc(100% + 15px);
+        top: 0px;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        border: 3px solid #f0f0f0;
+        background: var(--white);
+      }
     }
   }
 
@@ -245,14 +278,30 @@ textarea {
         background: var(--gradient);
         border: 3px solid var(--white);
       }
+      &.standart {
+        &:before {
+          border: 3px solid var(--blue);
+          background: var(--blue) url('../img/svg/checkbox.svg') no-repeat center center;
+          background-size: 80% 80%;
+        }
+      }
     }
   }
 
   &.invalid {
     + p {
       color: var(--invalid);
+      a {
+        color: var(--invalid);
+        border-bottom: 1px solid var(--invalid);
+      }
       &:before {
         border: 3px solid var(--invalid);
+      }
+      &.standart {
+        &:before {
+          border: 3px solid var(--invalid);
+        }
       }
     }
     &:checked {
@@ -272,6 +321,7 @@ textarea {
   -webkit-text-fill-color: var(--input-color) !important;
   font-size: var(--input-font-size) !important;
   font-family: var(--input-font-family) !important;
+  font-weight: 400;
   transition: background-color 9999s ease-in-out 0s;
 }
 
@@ -381,10 +431,19 @@ select.open + .input-icon {
 
       &:before {
         right: calc(100% + 10px);
-        top: -2px;
-        width: 50px;
-        height: 50px;
+        top: 3px;
+        width: 40px;
+        height: 40px;
         border: 2px solid #f0f0f0;
+      }
+
+      &.standart {
+        float: right;
+        text-align: left;
+        &:before {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
 
@@ -419,9 +478,14 @@ select.open + .input-icon {
 
 #register,
 #register2,
-#register3,
 #register4 {
   .button {
     margin-top: 30px;
+  }
+}
+
+#register3 {
+  .button {
+    margin-top: 10px;
   }
 }

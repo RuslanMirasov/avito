@@ -7,6 +7,7 @@ import { initCountdown } from './countdown.js';
 import { initDigitAnimations } from './digit-animation.js';
 import { initScrollAnimations } from './scrollAnimations.js';
 import { initSectionPaginationWatcher } from './sectionPaginationWatcher.js';
+import { initInputMasks } from './inputMasks.js';
 
 popup.init();
 window.popup = popup;
@@ -17,6 +18,7 @@ initAccordeons();
 initScrollAnimations();
 initDigitAnimations();
 initSectionPaginationWatcher();
+initInputMasks();
 initCountdown('14 октября 2025');
 
 setTimeout(() => {

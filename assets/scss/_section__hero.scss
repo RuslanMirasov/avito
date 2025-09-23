@@ -42,17 +42,15 @@
   }
 
   h1 {
-    font-family: var(--medium);
+    font-family: var(--font);
+    font-weight: 550;
     font-size: myclamp(12px, 22px, 1440px, 1440px);
     line-height: 1;
     color: var(--black);
-    @media (max-width: 767px) {
-      font-family: var(--medium);
-    }
   }
 
   @media (max-width: 767px) {
-    transform: translate(0px, -114px);
+    transform: translate(0px, -100px);
   }
 
   @media (max-height: 620px) {
@@ -102,8 +100,8 @@
     border-top: 2px solid var(--white);
 
     span {
-      font-family: var(--medium);
-      font-weight: 500;
+      font-family: var(--font);
+      font-weight: 550;
       font-size: myclamp(10px, 30px, 1440px, 1440px);
       line-height: 1;
       color: var(--black);
@@ -113,7 +111,8 @@
 }
 
 .age-limit {
-  font-family: var(--light);
+  font-family: var(--font);
+  font-weight: 300;
   font-size: myclamp(32px, 68px, 1440px, 1440px);
   color: var(--white);
   position: absolute;

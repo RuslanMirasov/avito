@@ -48,6 +48,11 @@ const validationRegEx = [
     error: 'Разрешены только буквы кириллицы!',
   },
   {
+    name: 'LastName',
+    regex: /^[\p{Script=Cyrillic}\s-]+$/u,
+    error: 'Разрешены только буквы кириллицы!',
+  },
+  {
     name: 'company_inn',
     regex: /^\d{10}$|^\d{12}$/,
     error: 'ИНН должен содержать 10 или 12 цифр!',
@@ -461,93 +466,6 @@ document.addEventListener(
   },
   true
 );
-
-// PHONE MASK
-
-const handleTelFocus = e => {
-  const tel = e.target;
-  if (!tel.value) {
-    tel.value = '+7 ___ ___-__-__';
-  }
-};
-
-const handleTelBlur = e => {
-  const tel = e.target;
-  if (tel.value === '+7 ___ ___-__-__') {
-    tel.value = '';
-  }
-};
-
-const handleTelInput = e => {
-  e.preventDefault();
-  const input = e.target;
-  const tel = input.closest('form').querySelector("[type='tel']");
-  const phonePattern = /^\+7\s\d{3}\s\d{3}-\d{2}-\d{2}$/;
-  if (!phonePattern.test(tel.value)) {
-    tel.value = '';
-  }
-};
-
-const handleTelClick = e => {
-  const tel = e.target;
-  const underscoreIndex = tel.value.indexOf('_');
-  tel.setSelectionRange(underscoreIndex, underscoreIndex);
-};
-
-const handleTelKeydown = e => {
-  if (e.key === 'Enter' || e.key === 'Tab') return;
-  if (e.ctrlKey || e.metaKey) return;
-
-  e.preventDefault();
-
-  const tel = e.target;
-  const value = tel.value;
-  const inputType = e.inputType;
-  let cursorPosition = tel.selectionStart;
-  if (cursorPosition <= 2) return;
-
-  if (inputType === 'deleteContentBackward') {
-    while (cursorPosition > 2 && !/\d/.test(value[cursorPosition - 1])) {
-      cursorPosition--;
-    }
-
-    if (cursorPosition > 2 && /\d/.test(value[cursorPosition - 1])) {
-      const newValue = value.slice(0, cursorPosition - 1) + '_' + value.slice(cursorPosition);
-      tel.value = newValue;
-      tel.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
-    }
-    return;
-  }
-
-  if (/\d/.test(e.data)) {
-    const underscoreIndex = value.indexOf('_');
-    if (underscoreIndex !== -1 && underscoreIndex > 2) {
-      const newValue = value.slice(0, underscoreIndex) + e.data + value.slice(underscoreIndex + 1);
-      tel.value = newValue;
-      tel.setSelectionRange(underscoreIndex + 1, underscoreIndex + 1);
-    }
-  }
-};
-
-const telHandlers = {
-  focus: handleTelFocus,
-  blur: handleTelBlur,
-  beforeinput: handleTelKeydown,
-  input: handleTelInput,
-  click: handleTelClick,
-};
-
-Object.entries(telHandlers).forEach(([eventName, handler]) => {
-  document.addEventListener(
-    eventName,
-    event => {
-      if (event.target?.type === 'tel') {
-        handler(event);
-      }
-    },
-    true
-  );
-});
 
 // SUBMIT MIDDLEWARE
 document.addEventListener(
