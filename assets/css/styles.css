@@ -1999,6 +1999,7 @@ body.locked {
 }
 .hero-logo img {
   width: clamp(110px, 13.6111vw, 196px);
+  z-index: 1;
 }
 .hero-logo h1 {
   font-family: var(--font);
@@ -2007,9 +2008,25 @@ body.locked {
   line-height: 1;
   color: var(--black);
 }
+.hero-logo:before {
+  content: "";
+  width: clamp(100px, 13.8889vw, 200px);
+  height: clamp(100px, 13.8889vw, 200px);
+  background: #fff;
+  filter: blur(40px);
+  position: absolute;
+  right: 50%;
+  z-index: 0;
+  transform: translate(-100px, 0px);
+  border-radius: 100px;
+}
 @media (max-width: 767px) {
   .hero-logo {
-    transform: translate(0px, -100px);
+    transform: translate(0px, -110px);
+  }
+  .hero-logo:before {
+    filter: blur(30px);
+    transform: translate(-70px, 0px);
   }
 }
 @media (max-height: 620px) {

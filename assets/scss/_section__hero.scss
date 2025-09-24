@@ -39,6 +39,7 @@
   transform: translate(0px, -20svh);
   img {
     width: myclamp(110px, 196px, 1440px, 1440px);
+    z-index: 1;
   }
 
   h1 {
@@ -49,8 +50,25 @@
     color: var(--black);
   }
 
+  &:before {
+    content: '';
+    width: myclamp(100px, 200px, 1440px, 1440px);
+    height: myclamp(100px, 200px, 1440px, 1440px);
+    background: #fff;
+    filter: blur(40px);
+    position: absolute;
+    right: 50%;
+    z-index: 0;
+    transform: translate(-100px, 0px);
+    border-radius: 100px;
+  }
+
   @media (max-width: 767px) {
-    transform: translate(0px, -100px);
+    transform: translate(0px, -110px);
+    &:before {
+      filter: blur(30px);
+      transform: translate(-70px, 0px);
+    }
   }
 
   @media (max-height: 620px) {
