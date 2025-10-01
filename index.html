@@ -334,7 +334,7 @@
         </div>
       </section>
 
-      <!--SECTION ПРОГРАММА-->
+      <!--SECTION PROGRAM-->
       <section class="section section--timetable" id="timetable">
         <div class="container">
           <div class="title-box">
@@ -471,12 +471,13 @@
       </section>
 
       <!--SECTION MAPS-->
-      <section class="section section--maps" data-slider data-space-between="20,20,10" id="maps">
+      <section class="section section--maps" data-slider data-space-between="20,20,10" data-auto-height="true" data-loop="true" id="maps">
         <div class="container">
           <h2 class="title title--h2">Как нас найти</h2>
 
           <div class="swiper swiper--maps">
             <div class="swiper-wrapper">
+              <!--YANDEX MAP-->
               <div class="swiper-slide">
                 <div class="map swiper-no-swiping" id="map" data-adress data-lat="56.766336" data-lng="60.758219"></div>
                 <div class="map-description">
@@ -498,10 +499,79 @@
                   <p>Также до&nbsp;концертного зала ходит общественный транспорт, вам подойдут автобусы: №&nbsp;44, 56, 65, 66.</p>
                 </div>
               </div>
-              <!-- <div class="swiper-slide">2</div> -->
+
+              <!--SVG MAP FLOOR 1-->
+              <div class="swiper-slide svg-map">
+                <div class="floor-wrapper">
+                  <div class="floor swiper-no-swiping">
+                    <img src="./assets/img/messages/floor1.webp" alt="" class="floor-image-bg" />
+                  </div>
+                </div>
+                <div class="map-masseges">
+                  <!--message 1 active-->
+                  <div class="map-massege active">
+                    <p class="map-masseges__title"><strong>Карта площадки</strong> <br />1 этаж</p>
+                    <ul class="map-massege__list">
+                      <li class="large green">Входная <br />группа и&nbsp;зона <br />регистрации</li>
+                      <li class="big blue">Зона отдыха <br />и общения</li>
+                      <li class="normal red">Фотозона, <br />интерактив</li>
+                      <li class="small orange">Кафе</li>
+                    </ul>
+                  </div>
+
+                  <!--message 2 (чтобы показать добавь класс "active")-->
+                  <div class="map-massege">
+                    <div class="map-massege__text">
+                      <ul class="map-massege__list">
+                        <li class="normal red">
+                          <b>Магнитная доска</b>
+                        </li>
+                      </ul>
+                      <b>Описание и&nbsp;краткая информация о&nbsp;активности/зоне</b>
+                      <p>Занимает приблизительно такое пространство на фрейме. Будем ждать вас на&nbsp;площадке!</p>
+                      <img src="./assets/img/messages/1.webp" alt="Avito" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--SVG MAP FLOOR 2-->
+              <div class="swiper-slide svg-map">
+                <div class="floor-wrapper">
+                  <div class="floor swiper-no-swiping">
+                    <img src="./assets/img/messages/floor2.webp" alt="" class="floor-image-bg" />
+                  </div>
+                </div>
+                <div class="map-masseges">
+                  <!--message 1 active-->
+                  <div class="map-massege active">
+                    <p class="map-masseges__title"><strong>Карта площадки</strong> <br />2 этаж</p>
+                    <ul class="map-massege__list">
+                      <li class="large green">Стенды <br />категорий</li>
+                      <li class="normal red">Интерактив</li>
+                      <li class="normal orange">Кафе</li>
+                    </ul>
+                  </div>
+
+                  <!--message 2 (чтобы показать добавь класс "active")-->
+                  <div class="map-massege">
+                    <div class="map-massege__text">
+                      <ul class="map-massege__list">
+                        <li class="normal red">
+                          <b>Магнитная доска</b>
+                        </li>
+                      </ul>
+                      <b>Описание и&nbsp;краткая информация о&nbsp;активности/зоне</b>
+                      <p>Занимает приблизительно такое пространство на фрейме. Будем ждать вас на&nbsp;площадке!</p>
+                      <img src="./assets/img/messages/1.webp" alt="Avito" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="swiper-pagination" data-pagination></div>
+            <div class="swiper-arrow" data-arrow-prev></div>
+            <div class="swiper-arrow" data-arrow-next></div>
           </div>
         </div>
       </section>

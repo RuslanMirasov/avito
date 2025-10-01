@@ -15,6 +15,7 @@ export const initSliders = () => {
         slidesPerView = '1,1,1',
         slidesPerGroup = '1,1,1',
         centered = false,
+        autoHeight = false,
         initialSlide = '0,0,0',
         direction = 'horizontal',
         allowTouchMove = 'true',
@@ -32,6 +33,7 @@ export const initSliders = () => {
         centeredSlidesBounds: centered,
         direction,
         noSwiping: true,
+        autoHeight,
         noSwipingClass: 'swiper-no-swiping',
         breakpoints: {
           0: {

@@ -8,6 +8,7 @@
   --blue: #00aaff;
   --viola: #965eeb;
   --green: #15d967;
+  --orange: #ffab03;
   --grey: #b3b5b8;
   --invalid: #ff4053;
   --gradient: linear-gradient(90deg, var(--blue), var(--viola));
@@ -34,5 +35,6 @@
 @import 'section__speakers';
 @import 'section__chatbot';
 @import 'section__maps';
+@import 'section__svg';
 @import 'section__faq';
 @import 'countdown';

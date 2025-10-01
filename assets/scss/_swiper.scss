@@ -32,6 +32,11 @@
   transition: opacity 0.3s;
   z-index: 3;
   top: 50%;
+  cursor: pointer;
+  &.swiper-button-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
   &[data-arrow-prev] {
     background: url('../img/svg/arrow-prev.svg') no-repeat center center;
     right: 100%;
