@@ -1,7 +1,7 @@
 .section--maps {
   padding: 60px 0px;
   @media (max-width: 767px) {
-    padding: 30px 0px 40px 0px;
+    padding: 30px 0px 50px 0px;
   }
 }
 
@@ -29,7 +29,10 @@
     }
 
     @media (max-width: 1439px) {
-      top: calc(100% + 30px);
+      width: 30px;
+      height: 30px;
+      background-size: auto 100%;
+      top: calc(100% + 50px);
       z-index: 11;
       &[data-arrow-next] {
         left: calc(50% + 10px);

@@ -370,9 +370,9 @@ a {
 .swiper-arrow {
   display: flex;
   position: absolute;
-  width: 30px;
-  height: 30px;
-  margin-top: -15px;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
   border: none;
   flex-wrap: wrap;
   justify-content: center;
@@ -2426,23 +2426,24 @@ body.locked {
   z-index: 2;
 }
 .section--speakers .swiper-arrow {
-  top: 110px;
+  top: 90px;
   margin-top: 0px;
 }
 @media (max-width: 1279px) {
   .section--speakers .swiper-arrow {
+    width: 30px;
+    height: 30px;
     top: auto;
     left: 50%;
     margin-left: -15px;
     margin-top: 0px;
+    background-size: auto 100%;
   }
   .section--speakers .swiper-arrow[data-arrow-next] {
     transform: translate(30px, 20px);
-    background: url("../img/svg/arrow-next-mobil.svg") no-repeat center center;
   }
   .section--speakers .swiper-arrow[data-arrow-prev] {
     transform: translate(-30px, 20px);
-    background: url("../img/svg/arrow-prev-mobil.svg") no-repeat center center;
   }
 }
 @media (max-width: 767px) {
@@ -2628,7 +2629,7 @@ body.locked {
 }
 @media (max-width: 767px) {
   .section--maps {
-    padding: 30px 0px 40px 0px;
+    padding: 30px 0px 50px 0px;
   }
 }
 
@@ -2659,7 +2660,10 @@ body.locked {
 }
 @media (max-width: 1439px) {
   .swiper--maps .swiper-arrow {
-    top: calc(100% + 30px);
+    width: 30px;
+    height: 30px;
+    background-size: auto 100%;
+    top: calc(100% + 50px);
     z-index: 11;
   }
   .swiper--maps .swiper-arrow[data-arrow-next] {
