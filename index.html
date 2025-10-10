@@ -35,7 +35,7 @@
             <li><a href="#about" class="menu__link" data-scrollto>О конференции</a></li>
             <li><a href="#speakers" class="menu__link" data-scrollto>Спикеры</a></li>
             <li><a href="#timetable" class="menu__link" data-scrollto="150">Расписание</a></li>
-            <li hidden><a href="#broadcast" class="menu__link" data-scrollto>Трансляция</a></li>
+            <li><a href="#broadcast" class="menu__link" data-scrollto>Трансляция</a></li>
             <li><a href="#maps" class="menu__link" data-scrollto>Местоположение</a></li>
             <li><a href="#faq" class="menu__link" data-scrollto>FAQ</a></li>
             <li>
@@ -497,6 +497,39 @@
               </div>
             </li>
           </ul>
+        </div>
+      </section>
+
+      <!--SECTION BROADCAST-->
+      <section class="section section--broadcast" id="broadcast">
+        <div class="container">
+          <h2 class="title title--h2">Онлайн-трансляция</h2>
+
+          <div class="broadcast">
+            <div class="broadcast__iframe">
+              <script src="https://facecast.net/w/js/iframe.js"></script>
+              <div class="broadcast__soon">
+                <img src="./assets/img/svg/soon-logo.svg" alt="Avito" />
+                <div class="text">
+                  <p>Онлайн-трансляция конференции будет доступна на этой странице</p>
+                  <p>Начало эфира: <br />в 12:00 (по Екатеринбургу) / в 10:00 (по&nbsp;Москве)</p>
+                </div>
+              </div>
+
+              <!-- <iframe
+                id="p6ygd5"
+                onload="fc_load_iframe(this)"
+                width="976"
+                height="549"
+                style="border: none"
+                allow="autoplay; fullscreen"
+                allowfullscreen
+              ></iframe> -->
+            </div>
+            <a href="#timetable" class="button" data-scrollto="150">
+              <span>Перейти к программе</span>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -1373,6 +1406,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=54a78c1e-ad47-46be-99d8-9d26e3b87442&lang=ru_RU" type="text/javascript"></script>
+
     <script src="./assets/js/map.js"></script>
     <script src="./assets/js/forms.js" type="module"></script>
     <script src="./assets/js/scripts.js" type="module"></script>
