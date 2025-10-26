@@ -84,9 +84,9 @@
       <li>
         <a href="#broadcast" data-scrollto data-section-pagination></a>
       </li>
-      <li>
+      <!-- <li>
         <button type="button" class="button button--medium" data-popup-open="register"><span>Я в деле</span></button>
-      </li>
+      </li> -->
       <li>
         <a href="#timetable" data-scrollto="150" data-section-pagination></a>
       </li>
@@ -504,8 +504,19 @@
       <section class="section section--broadcast" id="broadcast">
         <div class="container">
           <h2 class="title title--h2">Онлайн-трансляция</h2>
-
           <div class="broadcast">
+            <div class="broadcast__iframe">
+              <iframe
+                src="https://vk.com/video_ext.php?oid=-5755934&id=456241814&hd=3"
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <a href="#timetable" class="button" data-scrollto="150"><span>Перейти к программе</span></a>
+          </div>
+          <!-- <div class="broadcast">
             <div class="broadcast__iframe">
               <script src="https://facecast.net/w/js/iframe.js"></script>
 
@@ -516,13 +527,11 @@
                   <p>Начало эфира: <br />в 12:00 (по Екатеринбургу) / в 10:00 (по&nbsp;Москве)</p>
                 </div>
               </div>
-
-              <!-- <iframe id="p6ygd5" onload="fc_load_iframe(this)" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
             </div>
             <a href="#timetable" class="button" data-scrollto="150">
               <span>Перейти к программе</span>
             </a>
-          </div>
+          </div> -->
         </div>
       </section>
 
